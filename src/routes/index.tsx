@@ -9,6 +9,7 @@ import { useScrollFx } from "@/components/site/useScrollFx";
 import { SplitText } from "@/components/site/SplitText";
 import { TattooCarousel, StudioVideo } from "@/components/site/TattooCarousel";
 import { ThemeToggle } from "@/components/site/ThemeToggle";
+import { AlexandreBio } from "@/components/site/AlexandreBio";
 
 const TITLE = "101Clinic Tattoo & Body Piercing | Tatuagem e Piercing em Itumbiara";
 const DESC =
@@ -186,6 +187,7 @@ function Index() {
         </div>
       </section>
 
+      <AlexandreBio />
       <TattooCarousel />
       <StudioVideo />
 
