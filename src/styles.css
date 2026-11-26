@@ -277,11 +277,13 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 
 
-/* Oculta a assinatura visual da plataforma somente durante o login administrativo. */
-body:has(main[data-admin-login="true"]) #lovable-badge,
-body:has(main[data-admin-login="true"]) .lovable-badge,
-body:has(main[data-admin-login="true"]) [data-lovable-badge],
-body:has(main[data-admin-login="true"]) a[href*="lovable.dev"] {
+/* Oculta o selo da plataforma em todas as rotas da aplicação.
+   Não altera o conteúdo nem o layout da 101Clinic. */
+#lovable-badge,
+.lovable-badge,
+[data-lovable-badge],
+a[href*="lovable.dev"],
+iframe[src*="lovable.dev"][title*="badge" i] {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;
