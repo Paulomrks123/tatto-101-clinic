@@ -2,43 +2,12 @@ import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SplitText } from "@/components/site/SplitText";
-import jesusCruzBraco from "@/assets/tattoo-jesus-cruz-braco.jpg.asset.json";
-import dragaoCostas from "@/assets/tattoo-dragao-costas.jpg.asset.json";
-import leaoCrucificacao from "@/assets/tattoo-leao-crucificacao.jpg.asset.json";
-import samuraiCostas from "@/assets/tattoo-samurai-costas.jpg.asset.json";
-import zeusBraco from "@/assets/tattoo-zeus-braco.jpg.asset.json";
-import coroaDiamante from "@/assets/tattoo-coroa-diamante.jpg.asset.json";
-import floralSetembro from "@/assets/tattoo-floral-setembro.jpg.asset.json";
+import sketch from "@/assets/sketch.jpg";
+import fineline from "@/assets/fineline.jpg";
 
 const TATTOOS = [
-  {
-    image: jesusCruzBraco,
-    alt: "Tatuagem em preto e cinza no braço com o rosto de Jesus de coroa de espinhos, cruz iluminada e um leão",
-  },
-  {
-    image: dragaoCostas,
-    alt: "Tatuagem de dragão oriental entre flores cobrindo as costas",
-  },
-  {
-    image: leaoCrucificacao,
-    alt: "Tatuagem realista de leão em preto e cinza com cena da crucificação no braço",
-  },
-  {
-    image: samuraiCostas,
-    alt: "Tatuagem de samurais, templo japonês e lua cheia cobrindo as costas",
-  },
-  {
-    image: zeusBraco,
-    alt: "Tatuagem de Zeus em preto e cinza fechando o braço, com padrões gregos no ombro",
-  },
-  {
-    image: coroaDiamante,
-    alt: "Tatuagem de coroa sobre um diamante no ombro, com a palavra fé em caligrafia abaixo",
-  },
-  {
-    image: floralSetembro,
-    alt: "Tatuagem fine line de ramo floral roxo com a palavra Setembro e a data 03.09 no antebraço",
-  },
+  { image: { url: sketch }, alt: "Desenho de tatuagem — imagem ilustrativa" },
+  { image: { url: fineline }, alt: "Tatuagem de traço fino — imagem ilustrativa" },
 ];
 
 export function TattooCarousel() {
@@ -72,17 +41,17 @@ export function TattooCarousel() {
   }, [emblaApi]);
 
   return (
-    <section id="trabalhos" aria-label="Portfólio de tatuagens" className="relative overflow-hidden py-28 md:py-36">
+    <section id="trabalhos" aria-label="Referências ilustrativas de tatuagens" className="relative overflow-hidden py-28 md:py-36">
       <div data-parallax="-0.06" className="pointer-events-none absolute -right-48 top-0 h-[520px] w-[520px] rounded-full bg-cobalt/20 blur-[130px]" />
       <div className="relative mx-auto max-w-7xl px-5 md:px-10">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>
             <p className="reveal flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.35em] text-neon">
-              <span className="h-px w-10 bg-neon" /> 02 — Portfólio
+              <span className="h-px w-10 bg-neon" /> 02 — Inspiração
             </p>
             <SplitText className="mt-6 max-w-3xl font-display text-5xl leading-[0.92] md:text-7xl" parts={["Cada traço conta", { em: "uma história." }]} />
             <p className="reveal mt-6 max-w-xl text-lg text-muted-foreground">
-              Explore os registros enviados. Arraste as imagens ou use as setas para navegar.
+              Imagens ilustrativas de tatuagem, sem atribuição de autoria à 101Clinic.
             </p>
           </div>
           <div className="reveal flex gap-3">
@@ -99,7 +68,7 @@ export function TattooCarousel() {
           className="reveal-blur mt-14 outline-none"
           role="region"
           aria-roledescription="carrossel"
-          aria-label="Sete imagens de tatuagens"
+          aria-label="Duas imagens ilustrativas de tatuagens"
           tabIndex={0}
           onKeyDown={(event) => {
             if (event.key === "ArrowLeft") { event.preventDefault(); scrollPrev(); }
@@ -129,7 +98,7 @@ export function TattooCarousel() {
                       />
                     </div>
                     <figcaption className="flex items-center justify-between px-3 py-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                      <span>Trabalho enviado</span>
+                      <span>Imagem ilustrativa</span>
                       <span>{String(index + 1).padStart(2, "0")} / {String(TATTOOS.length).padStart(2, "0")}</span>
                     </figcaption>
                   </figure>

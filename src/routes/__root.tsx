@@ -81,8 +81,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Gaivota Tattoo Estúdio Icaraí" },
-      { name: "description", content: "Estúdio de tatuagem em Icaraí, Niterói." },
+      { title: "101Clinic Tattoo & Body Piercing" },
+      { name: "description", content: "Estúdio de tatuagem e colocação de piercing em Itumbiara - GO." },
     ],
     links: [
       {

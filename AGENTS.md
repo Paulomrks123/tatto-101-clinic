@@ -30,3 +30,4 @@ use the editor.
 <!-- LOVABLE:END -->
 
 - Landing page motion (scroll/cursor parallax, reveals, tilt) runs from one rAF hook in src/components/site/useScrollFx.ts driven by data-parallax/data-mouse attributes and reveal classes; keeps effects cheap and centrally disabled for reduced motion.
+- Keep business contact and location data in the shared site data module so calls, messaging, map links and structured metadata stay consistent.

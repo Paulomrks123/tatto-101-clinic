@@ -1,19 +1,16 @@
 export const BIZ = {
-  name: "Gaivota Tattoo Estúdio",
-  phoneDisplay: "(21) 99575-8470",
-  phoneE164: "+5521995758470",
-  waDisplay: "(21) 99575-8470",
-  waNumber: "5521995758470", // owner-confirmed WhatsApp
-  landline: "(21) 3674-6899",
-  instagram: "https://www.instagram.com/gaivota.tattoo/",
-  address: "Av. Roberto Silveira, 368 — Icaraí, Niterói - RJ, 24230-161",
-  hours: "Segunda a sábado, 8h às 18h · Domingo fechado",
-  rating: "5,0",
-  reviews: 186,
-  site: "https://gaivotatattoo.com.br/",
-  facebook: "https://facebook.com/1022255147961927",
-  maps: "https://www.google.com/maps/search/?api=1&query=Gaivota%20Tattoo%20Est%C3%BAdio%20Icara%C3%AD%20Niter%C3%B3i%20RJ",
-  mapEmbed: "https://www.google.com/maps?q=Gaivota+Tattoo+Est%C3%BAdio+Icara%C3%AD,+Av.+Roberto+Silveira+368,+Niter%C3%B3i&output=embed",
+  name: "101Clinic Tattoo & Body Piercing",
+  phoneDisplay: "(62) 98578-6775",
+  phoneE164: "+5562985786775",
+  waDisplay: "(62) 98578-6775",
+  waNumber: "5562985786775",
+  address: "R. V 8, 4 - Vila Vitoria, Itumbiara - GO, 75533-550",
+  hours: "Quinta-feira: abertura às 08:00. Consulte os demais horários pelo telefone.",
+  rating: "4,9",
+  reviews: 89,
+  site: "https://map-to-momentum-studio.lovable.app/",
+  maps: "https://maps.app.goo.gl/YAmgbQK6KhiUiG4x8",
+  mapEmbed: "https://www.google.com/maps?q=101Clinic+Tattoo+%26+Body+Piercing,+R.+V+8,+4,+Vila+Vitoria,+Itumbiara,+GO,+75533-550&output=embed",
 };
 
 export function waLink(msg: string) {
@@ -21,4 +18,4 @@ export function waLink(msg: string) {
 }
 
 export const WA_DEFAULT =
-  "Olá! Conheci o Gaivota Tattoo pelo site e gostaria de conversar sobre uma tatuagem.";
+  "Olá! Conheci a 101Clinic Tattoo & Body Piercing pelo site e gostaria de conversar sobre tatuagem ou piercing.";
