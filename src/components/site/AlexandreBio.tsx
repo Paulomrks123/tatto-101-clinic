@@ -2,6 +2,42 @@ import { ArrowUpRight, Award } from "lucide-react";
 import { waLink } from "@/components/site/data";
 import { Ampersand } from "@/components/site/SplitText";
 
+const tattooSpecialties = [
+  "Realismo animal e humano",
+  "Tatuagem oriental",
+  "Tatuagem maori",
+  "Cover-up — cobertura de tatuagens antigas e cicatrizes",
+  "Tatuagem em aquarela",
+  "Tatuagem botânica e ornamental",
+  "Tatuagens femininas delicadas",
+  "Fine line feminina",
+];
+
+const piercingSpecialties = [
+  "Perfurações corporais em geral",
+  "Harmonização auricular",
+  "Microdermal",
+  "Surface",
+  "Alargadores",
+  "Perfurações íntimas",
+];
+
+function SpecialtyList({ title, items }: { title: string; items: string[] }) {
+  return (
+    <div className="reveal mt-6">
+      <h3 className="font-display text-xl text-foreground">{title}</h3>
+      <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+        {items.map((item) => (
+          <li key={item} className="flex items-start gap-2 text-sm leading-6 text-muted-foreground">
+            <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-neon" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export function AlexandreBio() {
   return (
     <section id="alexandre" aria-label="Sobre Alexandre Coelho" className="relative overflow-hidden py-24 md:py-32">
@@ -19,6 +55,8 @@ export function AlexandreBio() {
           <div className="reveal mt-5 inline-flex items-center gap-2 rounded-full border border-neon/30 bg-neon/10 px-4 py-2 text-sm text-neon"><Award size={17}/> 25 anos de profissão</div>
           <p className="reveal mt-7 text-lg leading-8 text-muted-foreground">Com 25 anos de experiência no universo da arte corporal, Alexandre Coelho construiu sua trajetória com dedicação, técnica e compromisso com cada trabalho. À frente da 101Clinic Tattoo <Ampersand /> Body Piercing, valoriza a expressão individual, o atendimento personalizado e a atenção aos detalhes.</p>
           <p className="reveal mt-4 text-lg leading-8 text-muted-foreground">Para Alexandre, cada projeto começa com uma boa conversa e respeito à história de quem escolhe transformar uma ideia em arte na pele.</p>
+          <SpecialtyList title="Especialidades em Tatuagem" items={tattooSpecialties} />
+          <SpecialtyList title="Especialidades em Piercing" items={piercingSpecialties} />
           <a href={waLink("Olá, Alexandre! Gostaria de conversar sobre um projeto na 101Clinic.")} target="_blank" rel="noopener" className="reveal btn-metal mt-8 inline-flex items-center gap-2 px-6 py-3 text-sm font-bold">Conheça a 101Clinic <ArrowUpRight size={16}/></a>
         </div>
       </div>
