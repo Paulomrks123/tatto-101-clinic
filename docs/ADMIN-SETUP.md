@@ -31,3 +31,16 @@ Esta entrega não implementa autenticação real, persistência, envio de WhatsA
 
 ## Desenvolvimento
 Acesse `/admin` no ambiente local para visualizar a interface demonstrativa. O painel não deve ser considerado protegido para uso real até a autenticação e as verificações server-side estarem implementadas.
+
+
+## Modo local sem banco de dados (implementado)
+O painel `/admin` permite cadastrar, consultar, editar e excluir fichas no armazenamento local do navegador (`localStorage`). Os indicadores são calculados a partir dos registros deste dispositivo.
+
+### Exportações disponíveis
+- **JSON:** backup completo dos registros locais.
+- **CSV:** planilha compatível com Excel, LibreOffice e Google Sheets.
+- **Relatório/PDF:** usa a impressão do navegador; selecione “Salvar como PDF”.
+
+Os dados não são enviados ao GitHub nem a um servidor, não sincronizam entre aparelhos e podem ser perdidos ao limpar os dados do navegador. Faça backups manuais regularmente. A exportação contém os campos preenchidos na ficha e deve ser guardada em local protegido.
+
+**Limite de segurança:** este modo é apenas para prototipagem e demonstração. Não armazene dados reais de saúde, documentos ou informações de menores no navegador sem uma avaliação de segurança e controles adequados. Para operação real, migrar para backend com autenticação, criptografia, controle de acesso, auditoria, retenção e políticas LGPD.
