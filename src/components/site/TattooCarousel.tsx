@@ -296,3 +296,86 @@ export function PiercingCarousel() {
     </section>
   );
 }
+
+
+/** Carrossel da coleção de joias para piercing. */
+export function JewelryCarousel() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", loop: true });
+  const [selectedSnap, setSelectedSnap] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+  const items = [
+    { src: "/IMG-20261126-WA0033.jpg", alt: "Joia de piercing da coleção 101Clinic", label: "Joias para piercing" },
+    { src: "/IMG-20261126-WA0034.jpg", alt: "Modelo de joia para piercing da coleção 101Clinic", label: "Detalhes da coleção" },
+    { src: "/IMG-20261126-WA0035.jpg", alt: "Peça de piercing selecionada pela 101Clinic", label: "Estilo e personalidade" },
+    { src: "/IMG-20261126-WA0038.jpg", alt: "Joia e aplicação de piercing da 101Clinic", label: "Piercing" },
+    { src: "/IMG-20261126-WA0039.jpg", alt: "Inspiração de piercing da coleção 101Clinic", label: "Inspiração" },
+    { src: "/IMG-20261126-WA0045.jpg", alt: "Detalhe de piercing da 101Clinic", label: "Seu próximo detalhe" },
+  ];
+  const prev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const next = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+  const to = useCallback((index: number) => emblaApi?.scrollTo(index), [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const update = () => {
+      setSelectedSnap(emblaApi.selectedScrollSnap());
+      setScrollSnaps(emblaApi.scrollSnapList());
+    };
+    update();
+    emblaApi.on("select", update).on("reInit", update);
+    return () => { emblaApi.off("select", update).off("reInit", update); };
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const autoplay = window.setInterval(() => {
+      if (!document.hidden) emblaApi.scrollNext();
+    }, 4300);
+    return () => window.clearInterval(autoplay);
+  }, [emblaApi]);
+
+  return (
+    <section id="colecao-joias" aria-label="Conheça alguns joias da nossa coleção" className="relative overflow-hidden py-24 md:py-32">
+      <div className="pointer-events-none absolute -right-40 top-10 h-[460px] w-[460px] rounded-full bg-cobalt/20 blur-[120px]" />
+      <div className="relative mx-auto max-w-7xl px-5 md:px-10">
+        <div className="flex flex-col justify-between gap-7 md:flex-row md:items-end">
+          <div className="max-w-2xl">
+            <p className="reveal flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.35em] text-neon"><span className="h-px w-10 bg-neon" /> 05 — Coleção</p>
+            <SplitText className="mt-6 font-display text-4xl leading-[.98] md:text-6xl" parts={[ "Conheça algumas joias", { em: " da nossa coleção." } ]} />
+            <p className="reveal mt-6 max-w-xl text-lg text-muted-foreground">Inspire-se nos detalhes e encontre a joia que combina com seu estilo.</p>
+          </div>
+          <div className="reveal flex gap-3">
+            <button type="button" onClick={prev} aria-label="Ver joia anterior" className="btn-chrome flex h-12 w-12 items-center justify-center"><ArrowLeft size={20}/></button>
+            <button type="button" onClick={next} aria-label="Ver próxima joia" className="btn-metal flex h-12 w-12 items-center justify-center"><ArrowRight size={20}/></button>
+          </div>
+        </div>
+        <div className="reveal-blur mt-12 outline-none" role="region" aria-roledescription="carrossel" aria-label="Seis imagens de joias para piercing" tabIndex={0}
+          onKeyDown={(event) => {
+            if (event.key === "ArrowLeft") { event.preventDefault(); prev(); }
+            if (event.key === "ArrowRight") { event.preventDefault(); next(); }
+          }}>
+          <div ref={emblaRef} className="overflow-hidden">
+            <div className="-ml-4 flex touch-pan-y">
+              {items.map((item, index) => (
+                <div key={item.src} role="group" aria-roledescription="slide" aria-label={`${index + 1} de ${items.length}`} className="min-w-0 flex-[0_0_86%] pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_33.333333%]">
+                  <figure className="surface-premium overflow-hidden rounded-3xl p-2">
+                    <div className="overflow-hidden rounded-[1.3rem] bg-ink">
+                      <img src={item.src} alt={item.alt} width={900} height={1200} loading="lazy" draggable={false} className="aspect-[3/4] w-full select-none object-cover transition duration-700 hover:scale-[1.03]" />
+                    </div>
+                    <figcaption className="flex items-center justify-between px-3 py-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                      <span>{item.label}</span><span>{String(index + 1).padStart(2, "0")} / 06</span>
+                    </figcaption>
+                  </figure>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="mt-7 flex items-center justify-center gap-2" aria-label="Escolher joia">
+          {scrollSnaps.map((_, index) => <button key={index} type="button" onClick={() => to(index)} aria-label={`Ir para a joia ${index + 1}`} aria-current={index === selectedSnap ? "true" : undefined} className={`h-2 rounded-full transition-all duration-300 ${index === selectedSnap ? "w-8 bg-neon" : "w-2 bg-foreground/25 hover:bg-foreground/50"}`} />)}
+        </div>
+        <a href={waLink("Olá! Gostaria de conhecer as joias disponíveis para piercing na 101Clinic.")} target="_blank" rel="noopener" className="reveal btn-metal mx-auto mt-8 flex w-fit items-center gap-2 px-6 py-3 text-sm"><Gem size={16}/> Consultar joias pelo WhatsApp</a>
+      </div>
+    </section>
+  );
+}
