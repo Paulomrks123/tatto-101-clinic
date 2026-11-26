@@ -2,6 +2,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { LockKeyhole, ShieldCheck } from "lucide-react";
 import { AdminPanel } from "./AdminPanel";
 
+const ADMIN_EMAIL = "101clinic@gmail.com";
 const HASH_KEY = "101clinic-admin-pin-hash-v1";
 const SESSION_KEY = "101clinic-admin-unlocked-v1";
 
@@ -15,6 +16,7 @@ export function AdminGate() {
   const [configured, setConfigured] = useState(false);
   const [unlocked, setUnlocked] = useState(false);
   const [ready, setReady] = useState(false);
+  const [email, setEmail] = useState(ADMIN_EMAIL);
   const [secret, setSecret] = useState("");
   const [confirm, setConfirm] = useState("");
   const [error, setError] = useState("");
@@ -29,6 +31,10 @@ export function AdminGate() {
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
+    if (email.trim().toLowerCase() !== ADMIN_EMAIL) {
+      setError("E-mail administrativo incorreto.");
+      return;
+    }
     if (secret.length < 8) {
       setError("Use uma senha com pelo menos 8 caracteres.");
       return;
@@ -66,8 +72,9 @@ export function AdminGate() {
       <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl border border-cyan-200/20 bg-cyan-200/10 text-cyan-200"><LockKeyhole size={25}/></div>
       <p className="mt-6 text-center font-mono text-[10px] uppercase tracking-[.3em] text-cyan-200">101Clinic · Acesso administrativo</p>
       <h1 className="mt-3 text-center font-display text-3xl">{configured ? "Entrar no painel" : "Criar senha de acesso"}</h1>
-      <p className="mt-3 text-center text-sm leading-6 text-white/50">{configured ? "Digite sua senha local para abrir a administração neste aparelho." : "Defina uma senha para bloquear o acesso casual ao painel neste aparelho."}</p>
+      <p className="mt-3 text-center text-sm leading-6 text-white/50">{configured ? "Entre com seu e-mail e a senha definida neste aparelho." : "Confirme o e-mail administrativo e defina uma senha para este aparelho."}</p>
       <form onSubmit={submit} className="mt-7 space-y-4">
+        <label className="block"><span className="mb-2 block text-xs text-white/60">E-mail</span><input autoComplete="username" type="email" value={email} onChange={(event)=>setEmail(event.target.value)} className="w-full rounded-xl border border-white/10 bg-[#080b11] px-4 py-3 text-sm outline-none focus:border-cyan-200/50" required/></label>
         <label className="block"><span className="mb-2 block text-xs text-white/60">Senha (mínimo 8 caracteres)</span><input autoComplete={configured ? "current-password" : "new-password"} type="password" value={secret} onChange={(event)=>setSecret(event.target.value)} className="w-full rounded-xl border border-white/10 bg-[#080b11] px-4 py-3 text-sm outline-none focus:border-cyan-200/50" required minLength={8}/></label>
         {!configured && <label className="block"><span className="mb-2 block text-xs text-white/60">Confirmar senha</span><input autoComplete="new-password" type="password" value={confirm} onChange={(event)=>setConfirm(event.target.value)} className="w-full rounded-xl border border-white/10 bg-[#080b11] px-4 py-3 text-sm outline-none focus:border-cyan-200/50" required minLength={8}/></label>}
         {error && <p role="alert" className="text-sm text-red-300">{error}</p>}
@@ -75,7 +82,7 @@ export function AdminGate() {
       </form>
       <div className="mt-6 rounded-xl border border-amber-300/20 bg-amber-300/[.05] p-4">
         <div className="flex gap-2 text-xs font-semibold text-amber-100"><ShieldCheck size={16}/> Proteção local limitada</div>
-        <p className="mt-2 text-xs leading-5 text-white/50">Esta senha é apenas uma trava de acesso neste navegador. Sem servidor, ela pode ser contornada por alguém com conhecimento técnico ou acesso ao aparelho. Não use este painel para armazenar dados reais de saúde, documentos ou informações de menores.</p>
+        <p className="mt-2 text-xs leading-5 text-white/50">O e-mail é fixo, mas a senha fica apenas neste navegador. Sem autenticação de servidor, essa trava pode ser contornada por alguém com acesso técnico ao aparelho. Não use este recurso como segurança para dados armazenados — as fichas não são salvas no site.</p>
       </div>
     </section>
   </main>;
