@@ -72,29 +72,29 @@ function Index() {
   useScrollFx();
   const [open, setOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [showAudioButton, setShowAudioButton] = useState(false);
+  const [audioPlaying, setAudioPlaying] = useState(false);
 
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
     audio.volume = 0.35;
-    audio.play().then(() => setShowAudioButton(false)).catch(() => setShowAudioButton(true));
+    audio.play().then(() => setAudioPlaying(true)).catch(() => setAudioPlaying(false));
   }, []);
 
-  const startBackgroundAudio = () => {
+  const toggleBackgroundAudio = () => {
     const audio = audioRef.current;
     if (!audio) return;
-    audio.play().then(() => setShowAudioButton(false)).catch(() => setShowAudioButton(true));
+    if (audio.paused) {
+      audio.play().then(() => setAudioPlaying(true)).catch(() => setAudioPlaying(false));
+    } else {
+      audio.pause();
+      setAudioPlaying(false);
+    }
   };
 
   return (
     <div className="relative min-w-0 max-w-full overflow-x-clip bg-background text-foreground">
       <audio ref={audioRef} src="/101%20CLINIC.mp3" loop preload="auto" aria-label="Trilha sonora 101Clinic" />
-      {showAudioButton && (
-        <button type="button" onClick={startBackgroundAudio} className="fixed bottom-5 left-5 z-[60] rounded-full border border-neon/50 bg-background/95 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-foreground shadow-lg backdrop-blur transition-colors hover:bg-neon hover:text-background" aria-label="Ativar música de fundo">
-          Ativar música ♪
-        </button>
-      )}
       {/* HEADER */}
       <header className="fixed inset-x-0 top-0 z-50">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 md:px-10">
@@ -102,6 +102,7 @@ function Index() {
             <img src="/IMG-20261125-WA0061(1).jpg" alt="Logotipo 101Clinic" className="h-12 w-12 rounded-full object-cover md:h-14 md:w-14" />
             <span className="font-semibold">101 Clinic</span>
           </a>
+          <button type="button" onClick={toggleBackgroundAudio} className="ml-auto mr-2 inline-flex shrink-0 items-center gap-2 rounded-full border border-neon/50 bg-background/90 px-3 py-2 text-[10px] font-semibold uppercase tracking-wider text-foreground shadow-sm backdrop-blur transition-colors hover:bg-neon hover:text-background md:mr-3 md:text-xs" aria-label={audioPlaying ? "Pausar áudio" : "Ativar áudio"}>{audioPlaying ? "Pausar áudio" : "Ativar áudio"} <span aria-hidden="true">{audioPlaying ? "Ⅱ" : "♪"}</span></button>
           <nav className="glass hidden items-center gap-1 rounded-full p-1.5 text-sm md:flex" aria-label="Principal">
             {NAV.map(([l, h]) => (
               <a key={h} href={h} className="rounded-full px-4 py-2 text-foreground/75 transition hover:bg-foreground/10 hover:text-foreground">{l}</a>
