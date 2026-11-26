@@ -24,7 +24,9 @@ export function AdminGate() {
 
   useEffect(() => {
     setConfigured(Boolean(localStorage.getItem(HASH_KEY)));
-    setUnlocked(sessionStorage.getItem(SESSION_KEY) === "yes");
+    // Exige autenticação sempre que /admin é aberto ou recarregado.
+    sessionStorage.removeItem(SESSION_KEY);
+    setUnlocked(false);
     setReady(true);
   }, []);
 
