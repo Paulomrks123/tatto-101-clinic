@@ -19,7 +19,7 @@ export function AdminPanel() {
   }
 
   function share(id: string) {
-    let number = phone.replace(/\\D/g, "");
+    let number = phone.replace(/\D/g, "");
     if (number.length === 10 || number.length === 11) number = `55${number}`;
     if (number.length < 12 || number.length > 15) {
       window.alert("Digite um número válido com DDD. Exemplo: 64999999999.");
