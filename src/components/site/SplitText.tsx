@@ -15,8 +15,8 @@ export function SplitText({ as: Tag = "h2", parts, className = "", delay = 0 }: 
           <span
             style={{ ["--i" as string]: i++ }}
             className={[
-              isEm ? "text-gradient italic" : "",
-              w === "&" ? "font-sans not-italic font-semibold" : "",
+              isEm && w !== "&" ? "text-gradient italic" : "",
+              w === "&" ? "font-sans not-italic font-semibold text-current" : "",
             ].filter(Boolean).join(" ")}
           >
             {w}
