@@ -130,7 +130,7 @@ function Index() {
       {/* HERO — 5 planos de parallax */}
       <section id="topo" className="grain relative min-h-[94svh] overflow-hidden">
         {/* 1. atmosfera */}
-        <div data-parallax="0.45" data-mouse="-12" className="absolute -inset-[10%] will-change-transform">
+        <div data-parallax="0.45" data-mouse="-12" className="absolute inset-0 will-change-transform">
           <video
             src="/GIF%20de%20pmarqsdf.mp4"
             autoPlay
