@@ -215,8 +215,7 @@ function Index() {
           </div>
           <div className="relative md:col-span-7 md:pl-6">
             <figure className="mask-reveal relative overflow-hidden rounded-3xl">
-              <img src={sketch} alt="Desenho de tatuagem — imagem ilustrativa" width={800} height={1008} loading="lazy" className="aspect-[4/5] w-full object-cover md:aspect-[4/3]" />
-              <figcaption className="glass absolute bottom-4 left-4 rounded-full px-4 py-2 text-xs">Imagem ilustrativa</figcaption>
+              <img src="/IMG-20261125-WA0063.jpg" alt="Alexandre Coelho na 101Clinic Tattoo & Body Piercing" width={900} height={1100} loading="lazy" className="aspect-[4/5] w-full object-cover md:aspect-[4/3]" />
             </figure>
           </div>
         </div>
