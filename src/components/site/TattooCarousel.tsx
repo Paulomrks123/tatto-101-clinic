@@ -136,59 +136,68 @@ export function TattooCarousel() {
   );
 }
 
+const VIDEO_ITEMS = [
+  { title: "Bastidores da 101Clinic", video: videoAsset.url, poster: videoPoster.url, description: "Vídeo atual do estúdio" },
+  { title: "Técnica e processo", video: undefined, poster: tatuando.url, description: "Espaço reservado para seu segundo vídeo" },
+  { title: "Arte em movimento", video: undefined, poster: tatuador.url, description: "Espaço reservado para seu terceiro vídeo" },
+];
+
 export function StudioVideo() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "center", loop: false });
+  const [active, setActive] = useState(0);
   const [muted, setMuted] = useState(true);
 
-  return (
-    <section id="video" aria-label="Vídeo do estúdio" className="relative overflow-hidden py-24 md:py-32">
-      <div data-parallax="-0.05" className="pointer-events-none absolute -left-40 top-10 h-[460px] w-[460px] rounded-full bg-cobalt/20 blur-[120px]" />
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 md:grid-cols-12 md:px-10">
-        <div className="md:col-span-5">
-          <p className="reveal flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.35em] text-neon">
-            <span className="h-px w-10 bg-neon" /> 02 — Vídeo
-          </p>
-          <SplitText className="mt-6 font-display text-4xl leading-[0.95] md:text-6xl" parts={["O estúdio", { em: "em movimento." }]} />
-          <p className="reveal mt-6 max-w-md text-lg text-muted-foreground">
-            Um passeio pela 101Clinic: o espaço, o atendimento e a tatuagem acontecendo.
-          </p>
-          <a
-            href={waLink("Olá! Vi o vídeo do estúdio no site e quero agendar um horário.")}
-            target="_blank"
-            rel="noopener"
-            className="reveal btn-metal mt-8 inline-flex items-center gap-2 px-6 py-3 text-sm"
-          >
-            <Play size={16} /> Agendar pelo WhatsApp
-          </a>
-        </div>
+  const move = (direction: "prev" | "next") => {
+    if (direction === "prev") emblaApi?.scrollPrev();
+    else emblaApi?.scrollNext();
+  };
 
-        <div className="reveal-blur md:col-span-7 md:pl-6">
-          <div className="surface-premium mx-auto w-full max-w-[420px] rounded-[2.2rem] p-2">
-            <div className="relative overflow-hidden rounded-[1.8rem] bg-ink">
-              <video
-                src={videoAsset.url}
-                poster={videoPoster.url}
-                controls
-                muted={muted}
-                loop
-                playsInline
-                preload="metadata"
-                className="aspect-[9/16] w-full object-cover"
-              />
-              <button
-                type="button"
-                onClick={() => setMuted((value) => !value)}
-                aria-label={muted ? "Ativar som do vídeo" : "Silenciar o vídeo"}
-                aria-pressed={muted}
-                className="glass absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full"
-              >
-                {muted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-              </button>
-            </div>
-            <p className="px-3 py-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-              Vídeo do estúdio — 101Clinic
-            </p>
+  useEffect(() => {
+    if (!emblaApi) return;
+    const update = () => setActive(emblaApi.selectedScrollSnap());
+    update();
+    emblaApi.on("select", update).on("reInit", update);
+    return () => { emblaApi.off("select", update).off("reInit", update); };
+  }, [emblaApi]);
+
+  return (
+    <section id="video" aria-label="Carrossel de vídeos de tatuagem e da 101Clinic" className="relative overflow-hidden py-24 md:py-32">
+      <div data-parallax="-0.05" className="pointer-events-none absolute -left-40 top-10 h-[460px] w-[460px] rounded-full bg-cobalt/20 blur-[120px]" />
+      <div className="relative mx-auto max-w-7xl px-5 md:px-10">
+        <div className="flex flex-col justify-between gap-7 md:flex-row md:items-end">
+          <div className="max-w-2xl">
+            <p className="reveal flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.35em] text-neon"><span className="h-px w-10 bg-neon" /> 03 — Vídeos</p>
+            <SplitText className="mt-6 font-display text-5xl leading-[.95] md:text-7xl" parts={["Tatuagem", { em: "em movimento." }]} />
+            <p className="reveal mt-6 max-w-xl text-lg text-muted-foreground">Uma seleção de vídeos do estúdio, dos processos e da arte na pele. Os espaços extras já estão preparados para receber seus próximos vídeos.</p>
+          </div>
+          <div className="reveal flex gap-3">
+            <button type="button" onClick={() => move("prev")} aria-label="Vídeo anterior" className="btn-chrome flex h-12 w-12 items-center justify-center"><ArrowLeft size={20}/></button>
+            <button type="button" onClick={() => move("next")} aria-label="Próximo vídeo" className="btn-metal flex h-12 w-12 items-center justify-center"><ArrowRight size={20}/></button>
           </div>
         </div>
+        <div ref={emblaRef} className="reveal-blur mt-12 overflow-hidden">
+          <div className="-ml-4 flex touch-pan-y">
+            {VIDEO_ITEMS.map((item, index) => (
+              <article key={item.title} className="min-w-0 flex-[0_0_88%] pl-4 sm:flex-[0_0_62%] lg:flex-[0_0_40%]">
+                <div className="surface-premium overflow-hidden rounded-3xl p-2">
+                  <div className="relative overflow-hidden rounded-[1.3rem] bg-ink">
+                    <video src={item.video} poster={item.poster} controls muted={muted} loop playsInline preload="metadata" className="aspect-[9/16] max-h-[680px] w-full object-cover" />
+                    {!item.video && <div className="pointer-events-none absolute inset-x-0 bottom-16 text-center"><span className="rounded-full border border-white/20 bg-black/65 px-4 py-2 text-xs text-white backdrop-blur">Adicionar vídeo {String(index + 1).padStart(2, "0")}</span></div>}
+                    {index === 0 && <button type="button" onClick={() => setMuted(value => !value)} aria-label={muted ? "Ativar som dos vídeos" : "Silenciar os vídeos"} aria-pressed={muted} className="glass absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full">{muted ? <VolumeX size={18}/> : <Volume2 size={18}/>}</button>}
+                  </div>
+                  <div className="flex items-center justify-between gap-3 px-3 py-4">
+                    <div><h3 className="font-display text-2xl">{item.title}</h3><p className="mt-1 text-xs text-muted-foreground">{item.description}</p></div>
+                    <span className="font-mono text-xs text-muted-foreground">{String(index + 1).padStart(2, "0")} / {String(VIDEO_ITEMS.length).padStart(2, "0")}</span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+        <div className="mt-7 flex justify-center gap-2" aria-label="Selecionar vídeo">
+          {VIDEO_ITEMS.map((item, index) => <button key={item.title} type="button" onClick={() => emblaApi?.scrollTo(index)} aria-label={`Ir para vídeo ${index + 1}`} aria-current={active === index ? "true" : undefined} className={`h-2 rounded-full transition-all ${active === index ? "w-8 bg-neon" : "w-2 bg-foreground/25"}`} />)}
+        </div>
+        <a href={waLink("Olá! Vi os vídeos da 101Clinic e gostaria de agendar.")} target="_blank" rel="noopener" className="reveal btn-metal mx-auto mt-8 flex w-fit items-center gap-2 px-6 py-3 text-sm"><Play size={16}/> Agendar pelo WhatsApp</a>
       </div>
     </section>
   );
