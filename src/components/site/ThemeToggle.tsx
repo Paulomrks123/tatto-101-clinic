@@ -3,12 +3,13 @@ import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function ThemeToggle() {
-  const [light, setLight] = useState(false);
+  const [light, setLight] = useState(true);
 
   useEffect(() => {
     let saved = false;
     try {
-      saved = localStorage.getItem("clinic-theme") === "light";
+      const preference = localStorage.getItem("clinic-theme");
+      saved = preference === null ? true : preference === "light";
     } catch { /* Storage may be unavailable in private browsing. */ }
     setLight(saved);
     document.documentElement.classList.toggle("light", saved);
