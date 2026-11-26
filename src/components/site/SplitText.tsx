@@ -12,7 +12,15 @@ export function SplitText({ as: Tag = "h2", parts, className = "", delay = 0 }: 
     words.forEach((w, wi) => {
       nodes.push(
         <span key={`${pi}-${wi}`} className="w">
-          <span style={{ ["--i" as string]: i++ }} className={isEm ? "text-gradient italic" : ""}>{w}</span>
+          <span
+            style={{ ["--i" as string]: i++ }}
+            className={[
+              isEm ? "text-gradient italic" : "",
+              w === "&" ? "font-sans not-italic font-semibold" : "",
+            ].filter(Boolean).join(" ")}
+          >
+            {w}
+          </span>
         </span>,
         " ",
       );
