@@ -183,11 +183,11 @@ function Index() {
       </section>
 
       {/* MARQUEE */}
-      <div className="relative -rotate-2 scale-105 overflow-hidden border-y border-border bg-cobalt py-4 text-cream shadow-glow" aria-hidden="true">
+      <div className="relative -rotate-2 scale-105 overflow-hidden border-y border-white/20 bg-[oklch(0.38_0.11_195)] py-4 text-white shadow-glow" aria-hidden="true">
         <div className="anim-marquee flex w-max gap-10 whitespace-nowrap font-display text-2xl italic md:text-4xl">
           {Array.from({ length: 2 }).flatMap((_, k) =>
             ["Tatuagem", "Body piercing", "Cobertura de tatuagem", "Joias", "Atendimento atencioso", "Cuidado", "Itumbiara · GO"].map((t) => (
-              <span key={k + t} className="flex items-center gap-10">{t}<Sparkles size={20} className="text-neon" /></span>
+              <span key={k + t} className="flex items-center gap-10">{t}<Sparkles size={20} className="text-white/85" /></span>
             )),
           )}
         </div>
