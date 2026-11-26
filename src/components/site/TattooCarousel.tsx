@@ -374,7 +374,7 @@ export function JewelryCarousel() {
         <div className="mt-7 flex items-center justify-center gap-2" aria-label="Escolher joia">
           {scrollSnaps.map((_, index) => <button key={index} type="button" onClick={() => to(index)} aria-label={`Ir para a joia ${index + 1}`} aria-current={index === selectedSnap ? "true" : undefined} className={`h-2 rounded-full transition-all duration-300 ${index === selectedSnap ? "w-8 bg-neon" : "w-2 bg-foreground/25 hover:bg-foreground/50"}`} />)}
         </div>
-        <a href={waLink("Olá! Gostaria de conhecer as joias disponíveis para piercing na 101Clinic.")} target="_blank" rel="noopener" className="reveal btn-metal mx-auto mt-8 flex w-fit items-center gap-2 px-6 py-3 text-sm"><Gem size={16}/> Consultar joias pelo WhatsApp</a>
+        <a href={waLink("Olá! Gostaria de conhecer as joias disponíveis para piercing na 101Clinic.")} target="_blank" rel="noopener" className="reveal btn-metal !bg-zinc-800 !text-white !border-zinc-700 hover:!bg-zinc-700 mx-auto mt-8 flex w-fit items-center gap-2 px-6 py-3 text-sm"><Gem size={16}/> Consultar joias pelo WhatsApp</a>
       </div>
     </section>
   );
