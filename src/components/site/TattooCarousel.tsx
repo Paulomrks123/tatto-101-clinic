@@ -197,7 +197,7 @@ export function StudioVideo() {
         <div className="mt-7 flex justify-center gap-2" aria-label="Selecionar vídeo">
           {VIDEO_ITEMS.map((item, index) => <button key={item.title} type="button" onClick={() => emblaApi?.scrollTo(index)} aria-label={`Ir para vídeo ${index + 1}`} aria-current={active === index ? "true" : undefined} className={`h-2 rounded-full transition-all ${active === index ? "w-8 bg-neon" : "w-2 bg-foreground/25"}`} />)}
         </div>
-        <a href={waLink("Olá! Vi os vídeos da 101Clinic e gostaria de agendar.")} target="_blank" rel="noopener" className="reveal btn-metal mx-auto mt-8 flex w-fit items-center gap-2 px-6 py-3 text-sm"><Play size={16}/> Agendar pelo WhatsApp</a>
+        <a href={waLink("Olá! Vi os vídeos da 101Clinic e gostaria de agendar.")} target="_blank" rel="noopener" className="reveal btn-metal !bg-zinc-800 !text-white !border-zinc-700 hover:!bg-zinc-700 mx-auto mt-8 flex w-fit items-center gap-2 px-6 py-3 text-sm"><Play size={16}/> Agendar pelo WhatsApp</a>
       </div>
     </section>
   );
