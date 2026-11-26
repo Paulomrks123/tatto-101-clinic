@@ -66,10 +66,10 @@ export function TattooCarousel() {
             </p>
           </div>
           <div className="reveal flex gap-3">
-            <button type="button" onClick={scrollPrev} aria-label="Ver imagem anterior" className="btn-chrome flex h-12 w-12 items-center justify-center">
+            <button type="button" onClick={scrollPrev} aria-label="Ver imagem anterior" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
               <ArrowLeft size={20} />
             </button>
-            <button type="button" onClick={scrollNext} aria-label="Ver próxima imagem" className="btn-metal flex h-12 w-12 items-center justify-center">
+            <button type="button" onClick={scrollNext} aria-label="Ver próxima imagem" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
               <ArrowRight size={20} />
             </button>
           </div>
@@ -171,8 +171,8 @@ export function StudioVideo() {
             <p className="reveal mt-6 max-w-xl text-lg text-muted-foreground">Uma seleção de vídeos do estúdio, dos processos e da arte na pele. Os espaços extras já estão preparados para receber seus próximos vídeos.</p>
           </div>
           <div className="reveal flex gap-3">
-            <button type="button" onClick={() => move("prev")} aria-label="Vídeo anterior" className="btn-chrome flex h-12 w-12 items-center justify-center"><ArrowLeft size={20}/></button>
-            <button type="button" onClick={() => move("next")} aria-label="Próximo vídeo" className="btn-metal flex h-12 w-12 items-center justify-center"><ArrowRight size={20}/></button>
+            <button type="button" onClick={() => move("prev")} aria-label="Vídeo anterior" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500"><ArrowLeft size={20}/></button>
+            <button type="button" onClick={() => move("next")} aria-label="Próximo vídeo" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500"><ArrowRight size={20}/></button>
           </div>
         </div>
         <div ref={emblaRef} className="reveal-blur mt-12 overflow-hidden">
@@ -253,8 +253,8 @@ export function PiercingCarousel() {
             <p className="reveal mt-6 max-w-xl text-lg text-muted-foreground">Conheça alguns trabalhos reais de body piercing realizados na 101Clinic, em Itumbiara.</p>
           </div>
           <div className="reveal flex gap-3">
-            <button type="button" onClick={scrollPrev} aria-label="Ver piercing anterior" className="btn-chrome flex h-12 w-12 items-center justify-center"><ArrowLeft size={20}/></button>
-            <button type="button" onClick={scrollNext} aria-label="Ver próximo piercing" className="btn-metal flex h-12 w-12 items-center justify-center"><ArrowRight size={20}/></button>
+            <button type="button" onClick={scrollPrev} aria-label="Ver piercing anterior" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500"><ArrowLeft size={20}/></button>
+            <button type="button" onClick={scrollNext} aria-label="Ver próximo piercing" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500"><ArrowRight size={20}/></button>
           </div>
         </div>
         <div
@@ -345,8 +345,8 @@ export function JewelryCarousel() {
             <p className="reveal mt-6 max-w-xl text-lg text-muted-foreground">Inspire-se nos detalhes e encontre a joia que combina com seu estilo.</p>
           </div>
           <div className="reveal flex gap-3">
-            <button type="button" onClick={prev} aria-label="Ver joia anterior" className="btn-chrome flex h-12 w-12 items-center justify-center"><ArrowLeft size={20}/></button>
-            <button type="button" onClick={next} aria-label="Ver próxima joia" className="btn-metal flex h-12 w-12 items-center justify-center"><ArrowRight size={20}/></button>
+            <button type="button" onClick={prev} aria-label="Ver joia anterior" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500"><ArrowLeft size={20}/></button>
+            <button type="button" onClick={next} aria-label="Ver próxima joia" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500"><ArrowRight size={20}/></button>
           </div>
         </div>
         <div className="reveal-blur mt-12 outline-none" role="region" aria-roledescription="carrossel" aria-label="Seis imagens de joias para piercing" tabIndex={0}
