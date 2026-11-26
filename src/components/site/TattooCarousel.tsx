@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { ArrowLeft, ArrowRight, Play, Volume2, VolumeX } from "lucide-react";
+import { ArrowLeft, ArrowRight, Play, Volume2, VolumeX, Gem } from "lucide-react";
 import { SplitText } from "@/components/site/SplitText";
 import { waLink } from "@/components/site/data";
 import hawa from "@/assets/tattoo-hawa-panturrilha.jpg.asset.json";
@@ -198,6 +198,52 @@ export function StudioVideo() {
           {VIDEO_ITEMS.map((item, index) => <button key={item.title} type="button" onClick={() => emblaApi?.scrollTo(index)} aria-label={`Ir para vídeo ${index + 1}`} aria-current={active === index ? "true" : undefined} className={`h-2 rounded-full transition-all ${active === index ? "w-8 bg-neon" : "w-2 bg-foreground/25"}`} />)}
         </div>
         <a href={waLink("Olá! Vi os vídeos da 101Clinic e gostaria de agendar.")} target="_blank" rel="noopener" className="reveal btn-metal mx-auto mt-8 flex w-fit items-center gap-2 px-6 py-3 text-sm"><Play size={16}/> Agendar pelo WhatsApp</a>
+      </div>
+    </section>
+  );
+}
+
+
+/** Área independente para o portfólio de piercings. Não usa fotos de tatuagem como substitutas. */
+export function PiercingCarousel() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", loop: false });
+  const items = [
+    { title: "Piercings de orelha", detail: "Espaço reservado para fotos reais dos trabalhos." },
+    { title: "Piercings faciais", detail: "Espaço reservado para fotos reais dos trabalhos." },
+    { title: "Joias e detalhes", detail: "Espaço reservado para fotos reais das joias." },
+  ];
+
+  return (
+    <section id="piercings" aria-label="Carrossel de piercings da 101Clinic" className="relative overflow-hidden bg-surface py-24 md:py-32">
+      <div className="relative mx-auto max-w-7xl px-5 md:px-10">
+        <div className="flex flex-col justify-between gap-7 md:flex-row md:items-end">
+          <div className="max-w-2xl">
+            <p className="reveal flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.35em] text-neon"><span className="h-px w-10 bg-neon" /> 04 — Piercings</p>
+            <SplitText className="mt-6 font-display text-5xl leading-[.95] md:text-7xl" parts={["Detalhes que", { em: "fazem diferença." }]} />
+            <p className="reveal mt-6 max-w-xl text-lg text-muted-foreground">Portfólio de piercings e joias da 101Clinic. As imagens reais serão adicionadas assim que os arquivos estiverem acessíveis.</p>
+          </div>
+          <div className="reveal flex gap-3">
+            <button type="button" onClick={() => emblaApi?.scrollPrev()} aria-label="Piercing anterior" className="btn-chrome flex h-12 w-12 items-center justify-center"><ArrowLeft size={20}/></button>
+            <button type="button" onClick={() => emblaApi?.scrollNext()} aria-label="Próximo piercing" className="btn-metal flex h-12 w-12 items-center justify-center"><ArrowRight size={20}/></button>
+          </div>
+        </div>
+        <div ref={emblaRef} className="reveal-blur mt-12 overflow-hidden">
+          <div className="-ml-4 flex touch-pan-y">
+            {items.map((item, index) => (
+              <article key={item.title} className="min-w-0 flex-[0_0_86%] pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_33.333333%]">
+                <div className="surface-premium flex min-h-[360px] flex-col justify-between overflow-hidden rounded-3xl p-7 md:min-h-[420px]">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-neon/30 bg-neon/5 text-neon"><Gem size={26}/></div>
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-neon">Portfólio · 0{index + 1}</p>
+                    <h3 className="mt-3 font-display text-3xl md:text-4xl">{item.title}</h3>
+                    <p className="mt-3 max-w-sm text-sm text-muted-foreground">{item.detail}</p>
+                    <span className="mt-6 inline-flex rounded-full border border-border px-3 py-1.5 text-[10px] uppercase tracking-widest text-muted-foreground">Aguardando fotos reais</span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
