@@ -77,7 +77,7 @@ function Index() {
       {/* HEADER */}
       <header className="fixed inset-x-0 top-0 z-50">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 md:px-10">
-          <a href="#topo" className="glass flex items-center gap-2 rounded-full px-4 py-1 font-display text-xl">
+          <a href="#topo" className="glass flex items-center gap-2 rounded-full px-4 py-0 font-display text-base">
             <img src="/IMG-20261125-WA0061(1).jpg" alt="Logotipo 101Clinic" className="h-[84px] w-[84px] rounded-full object-cover md:h-24 md:w-24" />
             <span>101 Clinic</span>
           </a>
