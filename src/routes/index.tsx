@@ -139,7 +139,7 @@ function Index() {
             playsInline
             preload="auto"
             aria-hidden="true"
-            className="h-full w-full -translate-y-4 scale-[0.9] object-cover opacity-50"
+            className="h-full w-full -translate-y-4 scale-50 object-cover opacity-50"
           />
         </div>
         {/* 2. luz */}
