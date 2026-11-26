@@ -19,7 +19,8 @@ export function AdminPanel() {
     const params = new URLSearchParams();
     // Somente dados do procedimento. Nunca incluir anamnese, saúde ou documentos pessoais.
     for (const [key, value] of Object.entries(details)) {
-      if (value.trim()) params.set(key, value.trim());
+      // O nome do cliente não deve aparecer no endereço compartilhável.
+      if (key !== "cliente" && value.trim()) params.set(key, value.trim());
     }
     const query = params.toString();
     return `${window.location.origin}/ficha/${kind}${query ? `?${query}` : ""}`;
