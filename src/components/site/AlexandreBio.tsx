@@ -9,7 +9,7 @@ export function AlexandreBio() {
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-5 md:grid-cols-12 md:px-10">
         <figure className="reveal-blur md:col-span-5">
           <div className="surface-premium overflow-hidden rounded-3xl p-2">
-            <img src={tatuador.url} alt="Foto provisória de Alexandre Coelho, substituível por um retrato atualizado" width={900} height={1100} loading="lazy" className="aspect-[4/5] w-full rounded-[1.3rem] object-cover" />
+            <img src={tatuador.url} alt="Imagem provisória do profissional da 101Clinic, substituível pelo retrato de Alexandre Coelho" width={900} height={1100} loading="lazy" className="aspect-[4/5] w-full rounded-[1.3rem] object-cover" />
           </div>
           <figcaption className="mt-3 text-center font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Foto provisória · substitua pela foto oficial</figcaption>
         </figure>
