@@ -7,10 +7,10 @@
 - Interface responsiva alinhada à identidade escura da 101Clinic.
 - Nenhuma alteração na página pública inicial.
 
-## Estado atual: interface, não produção
-Esta entrega não implementa autenticação real, persistência, envio de WhatsApp, links assinados, assinatura legal ou armazenamento de documentos. Os botões de operações que dependem do servidor ficam desabilitados. Os dados da demonstração são exemplos e não devem ser substituídos por dados reais no navegador.
+## Estado atual: demonstração local, não produção
+O painel prepara links para fichas de tatuagem e piercing e abre o WhatsApp para compartilhamento. A ficha é preenchida no aparelho do cliente e pode ser impressa/salva em PDF. Não existe autenticação real no servidor, banco de dados, sincronização, link individual com token, expiração, envio automático das respostas ou armazenamento de documentos. A senha é apenas uma trava local do navegador e pode ser contornada; não deve ser tratada como controle de acesso.
 
-**Não colete dados pessoais ou dados de saúde nesta versão.** Dados de anamnese são sensíveis. Antes de produção, implemente controle de acesso no servidor, políticas de menor privilégio, criptografia em trânsito e em repouso, trilha de auditoria, retenção e descarte, consentimento e atendimento aos direitos LGPD.
+**Não utilize esta versão para armazenar dados pessoais, informações de saúde ou dados de menores.** Dados de anamnese são sensíveis. Antes de produção, implemente controle de acesso no servidor, criptografia, trilha de auditoria, retenção e descarte, consentimento e atendimento à LGPD.
 
 ## Próxima etapa: conectar Supabase
 1. Criar projeto e configurar variáveis apenas no ambiente de deploy; nunca commitar chaves.
@@ -33,14 +33,5 @@ Esta entrega não implementa autenticação real, persistência, envio de WhatsA
 Acesse `/admin` no ambiente local para visualizar a interface demonstrativa. O painel não deve ser considerado protegido para uso real até a autenticação e as verificações server-side estarem implementadas.
 
 
-## Modo local sem banco de dados (implementado)
-O painel `/admin` permite cadastrar, consultar, editar e excluir fichas no armazenamento local do navegador (`localStorage`). Os indicadores são calculados a partir dos registros deste dispositivo.
-
-### Exportações disponíveis
-- **JSON:** backup completo dos registros locais.
-- **CSV:** planilha compatível com Excel, LibreOffice e Google Sheets.
-- **Relatório/PDF:** usa a impressão do navegador; selecione “Salvar como PDF”.
-
-Os dados não são enviados ao GitHub nem a um servidor, não sincronizam entre aparelhos e podem ser perdidos ao limpar os dados do navegador. Faça backups manuais regularmente. A exportação contém os campos preenchidos na ficha e deve ser guardada em local protegido.
-
-**Limite de segurança:** este modo é apenas para prototipagem e demonstração. Não armazene dados reais de saúde, documentos ou informações de menores no navegador sem uma avaliação de segurança e controles adequados. Para operação real, migrar para backend com autenticação, criptografia, controle de acesso, auditoria, retenção e políticas LGPD.
+## Limitações do modo atual
+Não há cadastro, histórico de fichas, exportação de registros ou persistência de respostas no painel atual. Os dados preenchidos na ficha permanecem no navegador do cliente até a impressão ou saída da página. Os detalhes do procedimento podem ser pré-preenchidos pelo link; o nome do cliente não é incluído na URL. Não inclua dados pessoais ou de saúde em links.
