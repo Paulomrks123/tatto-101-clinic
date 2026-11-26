@@ -2,25 +2,36 @@ import { useState } from "react";
 import { Copy, ExternalLink, LogOut, MessageCircle, ShieldCheck } from "lucide-react";
 
 const SESSION_KEY = "101clinic-admin-unlocked-v1";
-const base = typeof window !== "undefined" ? window.location.origin : "";
 
 export function AdminPanel() {
   const [copied, setCopied] = useState("");
+  const [phone, setPhone] = useState("");
+
   const links = [
     { id: "tatuagem", title: "Ficha de tatuagem", detail: "Anamnese, detalhes do procedimento e consentimento." },
     { id: "piercing", title: "Ficha de piercing", detail: "Alergias, cicatrização, joia e consentimento." },
   ];
+
   async function copy(id: string) {
     const url = `${window.location.origin}/ficha/${id}`;
     try { await navigator.clipboard.writeText(url); setCopied(id); }
     catch { window.prompt("Copie o link da ficha:", url); }
   }
+
   function share(id: string) {
+    let number = phone.replace(/\\D/g, "");
+    if (number.length === 10 || number.length === 11) number = `55${number}`;
+    if (number.length < 12 || number.length > 15) {
+      window.alert("Digite um número válido com DDD. Exemplo: 64999999999.");
+      return;
+    }
     const url = `${window.location.origin}/ficha/${id}`;
-    const message = `Olá! Para seu atendimento na 101Clinic, preencha a ficha abaixo, assine e salve em PDF. Depois, envie o PDF de volta pelo WhatsApp. ${url}`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    const message = `Olá! Para seu atendimento na 101Clinic, preencha a ficha abaixo, assine e salve em PDF. Depois, envie o PDF de volta por aqui: ${url}`;
+    window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
   }
+
   function logout() { sessionStorage.removeItem(SESSION_KEY); window.location.reload(); }
+
   return <main className="min-h-screen bg-[#090b10] px-5 py-10 text-[#f5f5f2] md:px-8">
     <div className="mx-auto max-w-5xl">
       <header className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-7">
@@ -29,6 +40,11 @@ export function AdminPanel() {
       </header>
       <section className="mt-8 rounded-2xl border border-cyan-200/20 bg-cyan-200/[.06] p-5">
         <div className="flex gap-3"><ShieldCheck className="mt-1 shrink-0 text-cyan-200"/><div><h2 className="font-semibold">Fluxo sem banco de dados</h2><p className="mt-1 text-sm leading-6 text-white/60">O cliente preenche a ficha no próprio aparelho, assina, usa “Salvar como PDF” e envia o arquivo pelo WhatsApp. As respostas não são armazenadas pelo site.</p></div></div>
+      </section>
+      <section className="mt-6 rounded-2xl border border-white/10 bg-white/[.03] p-5">
+        <label htmlFor="client-whatsapp" className="block text-sm font-semibold text-white/90">WhatsApp do cliente</label>
+        <p className="mt-1 text-xs leading-5 text-white/50">Digite o DDD e o número. Exemplo: 64999999999. O código do Brasil (+55) será acrescentado automaticamente.</p>
+        <input id="client-whatsapp" type="tel" inputMode="tel" autoComplete="tel" value={phone} onChange={(event) => setPhone(event.target.value)} placeholder="(64) 99999-9999" className="mt-3 w-full max-w-md rounded-xl border border-white/15 bg-[#090b10] px-4 py-3 text-base text-white outline-none placeholder:text-white/30 focus:border-cyan-200/60" />
       </section>
       <div className="mt-8 grid gap-5 md:grid-cols-2">
         {links.map((item) => <article key={item.id} className="rounded-2xl border border-white/10 bg-white/[.03] p-6">
