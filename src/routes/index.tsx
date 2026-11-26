@@ -6,7 +6,7 @@ import sketch from "@/assets/sketch.jpg";
 import { BIZ, waLink, WA_DEFAULT } from "@/components/site/data";
 import { useScrollFx } from "@/components/site/useScrollFx";
 import { Ampersand, SplitText } from "@/components/site/SplitText";
-import { TattooCarousel, StudioVideo, PiercingCarousel } from "@/components/site/TattooCarousel";
+import { TattooCarousel, StudioVideo, PiercingCarousel, JewelryCarousel } from "@/components/site/TattooCarousel";
 import { ThemeToggle } from "@/components/site/ThemeToggle";
 import { AlexandreBio } from "@/components/site/AlexandreBio";
 
@@ -226,6 +226,7 @@ function Index() {
       <TattooCarousel />
       <StudioVideo />
       <PiercingCarousel />
+      <JewelryCarousel />
 
       {/* SERVIÇOS */}
       <section id="servicos" className="relative overflow-hidden bg-surface py-28 md:py-40">
