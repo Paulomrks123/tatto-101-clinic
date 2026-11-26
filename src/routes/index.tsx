@@ -79,7 +79,7 @@ function Index() {
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 md:px-10">
           <a href="#topo" className="flex items-center gap-2 bg-transparent p-0 font-display text-base shadow-none">
             <img src="/IMG-20261125-WA0061(1).jpg" alt="Logotipo 101Clinic" className="h-12 w-12 rounded-full object-cover md:h-14 md:w-14" />
-            <span>101 Clinic</span>
+            <span className="font-semibold">101 Clinic</span>
           </a>
           <nav className="glass hidden items-center gap-1 rounded-full p-1.5 text-sm md:flex" aria-label="Principal">
             {NAV.map(([l, h]) => (
