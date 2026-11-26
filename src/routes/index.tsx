@@ -196,8 +196,8 @@ function Index() {
       {/* ESTÚDIO — fotos reais */}
       <section id="estudio" className="relative overflow-hidden py-28 md:py-40">
         <div data-parallax="-0.08" className="pointer-events-none absolute -left-40 top-20 h-[500px] w-[500px] rounded-full bg-cobalt/25 blur-[120px]" />
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-12 md:px-10">
-          <div className="md:col-span-5">
+        <div className="relative mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-1 md:px-10">
+          <div className="md:col-span-1">
             <Eyebrow n="01">O estúdio</Eyebrow>
             <SplitText className="mt-6 font-display text-5xl leading-[0.92] md:text-7xl" parts={["Arte com calma,", { em: "cuidado" }, "e mão firme."]} />
             <div className="mt-8 space-y-5 text-lg text-muted-foreground">
