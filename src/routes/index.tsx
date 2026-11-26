@@ -46,6 +46,7 @@ const NAV = [
   ["Estúdio", "#estudio"],
   ["Serviços", "#servicos"],
   ["Processo", "#processo"],
+  ["Cuidados", "#cuidados"],
   ["Dúvidas", "#faq"],
   ["Contato", "#contato"],
 ] as const;
@@ -293,6 +294,54 @@ function Index() {
             ))}
             <li className="px-1 text-xs text-cream/70">Trechos das avaliações do Google fornecidas para o site.</li>
           </ul>
+        </div>
+      </section>
+
+
+      {/* CUIDADOS */}
+      <section id="cuidados" className="relative overflow-hidden bg-surface py-28 md:py-36">
+        <div className="pointer-events-none absolute inset-0 opacity-40"><div className="aurora h-full w-full" /></div>
+        <div className="relative mx-auto max-w-7xl px-5 md:px-10">
+          <Eyebrow n="05">Orientações importantes</Eyebrow>
+          <SplitText className="mt-6 max-w-3xl font-display text-5xl leading-[0.95] md:text-7xl" parts={["Cuide da sua", { em: "pele." }]} />
+          <p className="mt-6 max-w-2xl text-muted-foreground">Os cuidados corretos ajudam no processo de cicatrização. As orientações podem variar conforme a região, a técnica e cada pessoa: siga sempre as instruções dadas pelo profissional que realizou o procedimento.</p>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <article className="surface-premium rounded-3xl p-7 md:p-9">
+              <h3 className="font-display text-3xl md:text-4xl">Tatuagem</h3>
+              <p className="mt-2 text-sm font-semibold uppercase tracking-widest text-neon">Após o procedimento</p>
+              <ul className="mt-6 space-y-3 text-sm leading-6 text-muted-foreground">
+                <li>• Lave as mãos antes de tocar na tatuagem.</li>
+                <li>• Higienize delicadamente conforme a orientação recebida; não esfregue nem use buchas.</li>
+                <li>• Use apenas o produto indicado pelo profissional, em camada fina quando recomendado.</li>
+                <li>• Não arranque casquinhas, não coce e evite atrito ou roupas apertadas sobre a área.</li>
+                <li>• Evite piscina, mar, banheira e exposição solar direta até a cicatrização.</li>
+                <li>• Não aplique álcool, água oxigenada, receitas caseiras ou pomadas por conta própria.</li>
+              </ul>
+            </article>
+            <article className="surface-premium rounded-3xl p-7 md:p-9">
+              <h3 className="font-display text-3xl md:text-4xl">Piercing</h3>
+              <p className="mt-2 text-sm font-semibold uppercase tracking-widest text-neon">Durante a cicatrização</p>
+              <ul className="mt-6 space-y-3 text-sm leading-6 text-muted-foreground">
+                <li>• Higienize as mãos antes de encostar na região.</li>
+                <li>• Limpe com soro fisiológico estéril 0,9%, conforme a orientação do profissional.</li>
+                <li>• Não gire, puxe ou fique movimentando a joia.</li>
+                <li>• Evite pressão, atrito, maquiagem e produtos cosméticos sobre a perfuração.</li>
+                <li>• Evite piscinas, lagos, mar e imersão durante a fase inicial de cicatrização.</li>
+                <li>• Não retire nem troque a joia por conta própria; peça avaliação ao profissional.</li>
+              </ul>
+            </article>
+          </div>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <article className="rounded-3xl border border-amber-400/30 bg-amber-400/5 p-7">
+              <h3 className="font-semibold">Sinais de alerta</h3>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">Procure avaliação de um profissional de saúde se houver vermelhidão que aumenta ou se espalha, dor ou inchaço intensos ou progressivos, calor local importante, pus, mau cheiro ou febre. Em caso de dificuldade para respirar, desmaio ou reação intensa, procure atendimento de urgência.</p>
+            </article>
+            <article className="surface-premium rounded-3xl p-7">
+              <h3 className="font-semibold">Antes de fazer</h3>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">Alimente-se, hidrate-se e compareça descansado. Informe ao profissional sobre alergias, medicamentos, condições de saúde, problemas de cicatrização ou alterações na pele. Não faça o procedimento sobre pele irritada ou lesionada sem avaliação.</p>
+            </article>
+          </div>
+          <p className="mt-6 text-xs leading-6 text-muted-foreground">Conteúdo educativo e geral; não substitui avaliação médica nem as instruções individualizadas do profissional. Cada local do corpo pode exigir cuidados diferentes. Se tiver dúvidas ou perceber piora, entre em contato com a clínica e procure orientação de saúde.</p>
         </div>
       </section>
 
