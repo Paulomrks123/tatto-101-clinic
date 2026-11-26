@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, MapPin, Clock, Phone, Star, Menu, X, MessageCircle, Sparkles, ShieldCheck, PenTool, HeartHandshake } from "lucide-react";
-import hero from "@/assets/hero-tattoo.jpg";
 import fineline from "@/assets/fineline.jpg";
 import sketch from "@/assets/sketch.jpg";
 import { BIZ, waLink, WA_DEFAULT } from "@/components/site/data";
@@ -132,7 +131,16 @@ function Index() {
       <section id="topo" className="grain relative min-h-[94svh] overflow-hidden">
         {/* 1. atmosfera */}
         <div data-parallax="0.45" data-mouse="-12" className="absolute -inset-[10%] will-change-transform">
-          <img src={hero} alt="" width={1600} height={1008} className="anim-ken-burns h-full w-full object-cover opacity-40" />
+          <video
+            src="/GIF%20de%20pmarqsdf.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+            className="h-full w-full object-cover opacity-50"
+          />
         </div>
         {/* 2. luz */}
         <div data-parallax="0.25" data-mouse="18" className="pointer-events-none absolute -inset-[20%] will-change-transform">
