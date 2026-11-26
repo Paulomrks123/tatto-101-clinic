@@ -1,7 +1,6 @@
 import { ArrowUpRight, Award } from "lucide-react";
 import { waLink } from "@/components/site/data";
 import { Ampersand } from "@/components/site/SplitText";
-import tatuador from "@/assets/tatuador-101clinic.jpg.asset.json";
 
 export function AlexandreBio() {
   return (
@@ -10,9 +9,9 @@ export function AlexandreBio() {
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-5 md:grid-cols-12 md:px-10">
         <figure className="reveal-blur md:col-span-5">
           <div className="surface-premium overflow-hidden rounded-3xl p-2">
-            <img src={tatuador.url} alt="Imagem provisória do profissional da 101Clinic, substituível pelo retrato de Alexandre Coelho" width={900} height={1100} loading="lazy" className="aspect-[4/5] w-full rounded-[1.3rem] object-cover" />
+            <img src="/IMG-20261125-WA0063.jpg" alt="Alexandre Coelho na 101Clinic Tattoo & Body Piercing" width={900} height={1100} loading="lazy" className="aspect-[4/5] w-full rounded-[1.3rem] object-cover" />
           </div>
-          <figcaption className="mt-3 text-center font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Foto provisória · substitua pela foto oficial</figcaption>
+          <figcaption className="mt-3 text-center font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Alexandre Coelho · 101Clinic</figcaption>
         </figure>
         <div className="md:col-span-7 md:pl-8">
           <p className="reveal flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.35em] text-neon"><span className="h-px w-10 bg-neon" /> 02 — Nossa história</p>
