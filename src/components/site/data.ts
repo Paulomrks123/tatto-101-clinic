@@ -8,7 +8,7 @@ export const BIZ = {
   hours: "Quinta-feira: abertura às 08:00. Consulte os demais horários pelo telefone.",
   rating: "4,9",
   reviews: 89,
-  site: "https://map-to-momentum-studio.lovable.app/",
+  site: "https://tatto-101-clinic.lovable.app",
   maps: "https://maps.app.goo.gl/V8EnKn6GNEcj2zBeA",
   mapEmbed: "https://www.google.com/maps?q=101Clinic+Tattoo+%26+Body+Piercing,+R.+V+8,+4,+Vila+Vitoria,+Itumbiara,+GO,+75533-550&output=embed",
 };
