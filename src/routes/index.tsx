@@ -129,19 +129,6 @@ function Index() {
 
       {/* HERO — 5 planos de parallax */}
       <section id="topo" className="grain relative min-h-[94svh] overflow-hidden">
-        {/* 1. atmosfera */}
-        <div data-parallax="0.45" data-mouse="-12" className="absolute inset-0 will-change-transform">
-          <video
-            src="/GIF%20de%20pmarqsdf.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            aria-hidden="true"
-            className="h-full w-full -translate-y-32 scale-[1.4] object-contain opacity-50"
-          />
-        </div>
         {/* 2. luz */}
         <div data-parallax="0.25" data-mouse="18" className="pointer-events-none absolute -inset-[20%] will-change-transform">
           <div className="aurora h-full w-full opacity-80" />
@@ -165,7 +152,6 @@ function Index() {
           <SplitText as="h1" delay={400} className="is-in mt-4 max-w-4xl font-display text-[4rem] md:text-[6.5rem] leading-[0.95]" parts={["101Clinic", { em: "Tattoo &" }, "Body Piercing"]} />
           <p className="anim-fade-up mt-4 max-w-lg text-base text-foreground/75 md:text-xl" style={{ animationDelay: "1.3s" }}>
             Tatuagem e colocação de piercing em Vila Vitoria, Itumbiara. Atendimento atencioso, cuidado e arte na pele.
-            <span className="mt-2 block text-sm text-muted-foreground">Imagem de fundo ilustrativa.</span>
           </p>
           <div className="anim-fade-up mt-6 flex flex-wrap items-center gap-3 md:mt-8" style={{ animationDelay: "1.5s" }}>
             <a href={waLink(WA_DEFAULT)} target="_blank" rel="noopener" className="btn-metal inline-flex items-center gap-2 px-7 py-4 font-bold">
