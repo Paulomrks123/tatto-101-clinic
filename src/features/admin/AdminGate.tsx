@@ -70,7 +70,7 @@ export function AdminGate() {
   if (unlocked) return <AdminPanel />;
 
   return (
-    <main className="relative isolate flex min-h-screen items-center overflow-hidden bg-[#080808] text-white">
+    <main data-admin-login="true" className="relative isolate flex min-h-screen items-center overflow-hidden bg-[#080808] text-white">
       <div className="absolute inset-0 -z-20 bg-cover bg-[center_38%]" style={{ backgroundImage: `url("${BACKDROP}")` }} />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(0,0,0,.94)_0%,rgba(0,0,0,.72)_42%,rgba(0,0,0,.55)_100%)]" />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(0deg,rgba(0,0,0,.86)_0%,transparent_55%,rgba(0,0,0,.42)_100%)]" />
