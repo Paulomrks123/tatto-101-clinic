@@ -40,6 +40,12 @@
 }
 
 :root {
+  color-scheme: dark;
+  --glass-background: oklch(0.14 0.035 266 / 62%);
+  --glass-border: oklch(1 0 0 / 11%);
+  --surface-gradient: radial-gradient(120% 80% at 0% 0%, oklch(0.55 0.24 265 / 20%), transparent 60%), linear-gradient(160deg, oklch(0.205 0.04 266), oklch(0.125 0.03 266));
+  --chrome-background: linear-gradient(180deg, oklch(1 0 0 / 13%), oklch(1 0 0 / 3%));
+  --chrome-border: oklch(1 0 0 / 22%);
   --radius: 1rem;
   --ink: oklch(0.105 0.028 266);
   --ink-foreground: oklch(0.96 0.018 82);
@@ -77,6 +83,35 @@
   --shadow-glow: 0 0 60px -10px oklch(0.55 0.24 265 / 60%);
 }
 
+:root.light {
+  color-scheme: light;
+  --ink: oklch(0.985 0.004 250);
+  --ink-foreground: oklch(0.23 0.025 266);
+  --surface: oklch(0.95 0.012 250);
+  --card: oklch(0.995 0.002 250);
+  --cobalt: oklch(0.9 0.045 265);
+  --neon: oklch(0.52 0.15 45);
+  --cream: oklch(0.23 0.025 266);
+  --secondary: oklch(0.92 0.018 250);
+  --muted: var(--secondary);
+  --muted-foreground: oklch(0.45 0.025 266);
+  --border: oklch(0.3 0.025 266 / 16%);
+  --input: oklch(0.3 0.025 266 / 22%);
+  --glass-background: oklch(0.99 0.004 250 / 86%);
+  --glass-border: var(--border);
+  --surface-gradient: linear-gradient(160deg, var(--card), var(--surface));
+  --chrome-background: linear-gradient(180deg, var(--card), var(--surface));
+  --chrome-border: var(--border);
+  --gradient-aurora: radial-gradient(60% 50% at 20% 20%, oklch(0.8 0.09 265 / 18%), transparent 70%), radial-gradient(50% 45% at 85% 30%, oklch(0.85 0.09 48 / 12%), transparent 70%);
+  --gradient-text: linear-gradient(100deg, var(--foreground), var(--neon));
+  --shadow-float: 0 20px 50px -30px oklch(0.3 0.025 266 / 20%);
+  --shadow-glow: 0 0 45px -20px oklch(0.55 0.1 265 / 22%);
+}
+
+:root.light #topo h1 { text-shadow: none; }
+:root.light .surface-premium,
+:root.light header .glass { box-shadow: var(--shadow-float); }
+
 @layer base {
   * { border-color: var(--color-border); }
   html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
@@ -109,17 +144,15 @@
   animation: shimmer-text 8s ease-in-out infinite alternate;
 }
 @utility glass {
-  background: oklch(0.14 0.035 266 / 62%);
+  background: var(--glass-background);
   backdrop-filter: blur(12px) saturate(1.2);
-  border: 1px solid oklch(1 0 0 / 11%);
+  border: 1px solid var(--glass-border);
   box-shadow: 0 12px 40px -22px oklch(0 0 0 / 80%), inset 0 1px 0 oklch(1 0 0 / 8%);
 }
 @utility surface-premium {
   position: relative;
-  background:
-    radial-gradient(120% 80% at 0% 0%, oklch(0.55 0.24 265 / 20%), transparent 60%),
-    linear-gradient(160deg, oklch(0.205 0.04 266), oklch(0.125 0.03 266));
-  border: 1px solid oklch(1 0 0 / 10%);
+  background: var(--surface-gradient);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow-float), inset 0 1px 0 oklch(1 0 0 / 9%);
 }
 @utility btn-metal {
@@ -136,8 +169,8 @@
 }
 @utility btn-chrome {
   position: relative; overflow: hidden; border-radius: 999px; color: var(--cream);
-  background: linear-gradient(180deg, oklch(1 0 0 / 13%), oklch(1 0 0 / 3%));
-  border: 1px solid oklch(1 0 0 / 22%); backdrop-filter: blur(14px);
+  background: var(--chrome-background);
+  border: 1px solid var(--chrome-border); backdrop-filter: blur(14px);
   box-shadow: inset 0 1px 0 oklch(1 0 0 / 25%), 0 10px 30px -12px oklch(0.55 0.24 265 / 70%);
   transition: transform 350ms var(--ease-out), background 350ms ease, border-color 350ms ease;
   &:hover { transform: translateY(-2px); border-color: oklch(0.7 0.18 265 / 70%); background: linear-gradient(180deg, oklch(0.55 0.24 265 / 35%), oklch(0.55 0.24 265 / 10%)); }

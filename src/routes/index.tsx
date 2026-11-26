@@ -8,6 +8,7 @@ import { BIZ, waLink, WA_DEFAULT } from "@/components/site/data";
 import { useScrollFx } from "@/components/site/useScrollFx";
 import { SplitText } from "@/components/site/SplitText";
 import { TattooCarousel } from "@/components/site/TattooCarousel";
+import { ThemeToggle } from "@/components/site/ThemeToggle";
 
 const TITLE = "101Clinic Tattoo & Body Piercing | Tatuagem e Piercing em Itumbiara";
 const DESC =
@@ -80,9 +81,12 @@ function Index() {
             ))}
           </nav>
           <a href={waLink(WA_DEFAULT)} target="_blank" rel="noopener" className="btn-metal hidden px-6 py-3 text-sm font-bold md:inline-flex">Agendar</a>
+          <div className="ml-auto flex shrink-0 items-center gap-2 md:ml-0">
+          <ThemeToggle />
           <button onClick={() => setOpen(!open)} className="glass rounded-full p-3 md:hidden" aria-label={open ? "Fechar menu" : "Abrir menu"} aria-expanded={open}>
             {open ? <X size={18} /> : <Menu size={18} />}
           </button>
+          </div>
         </div>
         {open && (
           <nav className="glass animate-in fade-in slide-in-from-top-4 mx-4 rounded-3xl p-6 md:hidden" aria-label="Mobile">
