@@ -53,7 +53,7 @@ export function AdminPanel() {
   function logout() { sessionStorage.removeItem(SESSION_KEY); window.location.reload(); }
 
   const isTattoo = kind === "tatuagem";
-  return <main className="min-h-screen bg-[#090b10] px-5 py-10 text-[#f5f5f2] md:px-8">
+  return <main data-admin-panel="true" className="min-h-screen bg-[#090b10] px-5 py-10 text-[#f5f5f2] md:px-8">
     <div className="mx-auto max-w-5xl">
       <header className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-7">
         <div><p className="font-mono text-[10px] uppercase tracking-[.3em] text-cyan-200">101Clinic · Área restrita</p><h1 className="mt-2 font-display text-4xl">Painel administrativo</h1><p className="mt-2 text-sm text-white/50">Prepare a ficha antes de enviar ao cliente.</p></div>
@@ -67,8 +67,8 @@ export function AdminPanel() {
         <h2 className="text-xl font-semibold">Escolha o tipo de atendimento</h2>
         <p className="mt-2 text-sm text-white/50">Selecione uma opção para abrir a ficha de preparação.</p>
         <div className="mt-5 grid gap-5 sm:grid-cols-2">
-          <button onClick={() => setKind("tatuagem")} className="rounded-2xl border border-white/10 bg-white/[.03] p-7 text-left transition hover:border-cyan-200/50 hover:bg-cyan-200/[.06]"><span className="font-mono text-[10px] uppercase tracking-[.25em] text-cyan-200">Atendimento 01</span><span className="mt-3 block font-display text-3xl">Tatuagem</span><span className="mt-2 block text-sm leading-6 text-white/50">Região do corpo, tema, tamanho e cores.</span><span className="mt-6 inline-flex rounded-xl bg-cyan-200 px-4 py-3 text-sm font-bold text-[#081015]">Preparar ficha</span></button>
-          <button onClick={() => setKind("piercing")} className="rounded-2xl border border-white/10 bg-white/[.03] p-7 text-left transition hover:border-cyan-200/50 hover:bg-cyan-200/[.06]"><span className="font-mono text-[10px] uppercase tracking-[.25em] text-cyan-200">Atendimento 02</span><span className="mt-3 block font-display text-3xl">Piercing</span><span className="mt-2 block text-sm leading-6 text-white/50">Local, tipo de joia e material.</span><span className="mt-6 inline-flex rounded-xl bg-cyan-200 px-4 py-3 text-sm font-bold text-[#081015]">Preparar ficha</span></button>
+          <button onClick={() => setKind("tatuagem")} className="rounded-2xl border border-white/10 bg-white/[.03] p-7 text-left transition hover:border-cyan-200/50 hover:bg-cyan-200/[.06]"><span className="font-mono text-[10px] uppercase tracking-[.25em] text-cyan-200">Atendimento 01</span><span className="mt-3 block font-display text-3xl">Tatuagem</span><span className="mt-2 block text-sm leading-6 text-white/50">Região do corpo, tema, tamanho e cores.</span><span className="mt-6 inline-flex rounded-xl bg-[#35cbd3] px-4 py-3 text-sm font-bold text-[#081015]">Preparar ficha</span></button>
+          <button onClick={() => setKind("piercing")} className="rounded-2xl border border-white/10 bg-white/[.03] p-7 text-left transition hover:border-cyan-200/50 hover:bg-cyan-200/[.06]"><span className="font-mono text-[10px] uppercase tracking-[.25em] text-cyan-200">Atendimento 02</span><span className="mt-3 block font-display text-3xl">Piercing</span><span className="mt-2 block text-sm leading-6 text-white/50">Local, tipo de joia e material.</span><span className="mt-6 inline-flex rounded-xl bg-[#35cbd3] px-4 py-3 text-sm font-bold text-[#081015]">Preparar ficha</span></button>
         </div>
       </section> : <section className="mt-8 rounded-2xl border border-white/10 bg-white/[.03] p-5 md:p-7">
         <button onClick={() => { setKind(null); setCopied(false); }} className="mb-6 inline-flex items-center gap-2 text-sm text-cyan-200"><ArrowLeft size={16}/> Voltar às opções</button>
@@ -87,7 +87,7 @@ export function AdminPanel() {
           <p className="mt-1 text-xs leading-5 text-white/50">Digite o DDD e o número. Exemplo: 64999999999. O código +55 será acrescentado automaticamente.</p>
           <input id="client-whatsapp" type="tel" inputMode="tel" autoComplete="tel" value={phone} onChange={e=>setPhone(e.target.value)} placeholder="(64) 99999-9999" className="mt-3 w-full max-w-md rounded-xl border border-white/15 bg-[#090b10] px-4 py-3 text-base text-white outline-none placeholder:text-white/30 focus:border-cyan-200/60"/>
           <div className="mt-5 flex flex-wrap gap-3">
-            <button onClick={share} className="inline-flex items-center gap-2 rounded-xl bg-cyan-200 px-5 py-3 text-sm font-bold text-[#081015]"><MessageCircle size={17}/> Enviar ficha pelo WhatsApp</button>
+            <button onClick={share} className="inline-flex items-center gap-2 rounded-xl bg-[#35cbd3] px-5 py-3 text-sm font-bold text-[#081015]"><MessageCircle size={17}/> Enviar ficha pelo WhatsApp</button>
             <button onClick={copy} className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-4 py-3 text-sm hover:bg-white/5"><Copy size={16}/>{copied ? "Link copiado" : "Copiar link"}</button>
             <a href={buildUrl()} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/10 px-4 py-3 text-sm text-white/70"><ExternalLink size={15}/> Visualizar ficha</a>
           </div>
