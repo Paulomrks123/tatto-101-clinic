@@ -59,8 +59,8 @@ export function AdminPanel() {
         <div><p className="font-mono text-[10px] uppercase tracking-[.3em] text-cyan-200">101Clinic · Área restrita</p><h1 className="mt-2 font-display text-4xl">Painel administrativo</h1><p className="mt-2 text-sm text-white/50">Prepare a ficha antes de enviar ao cliente.</p></div>
         <button onClick={logout} className="inline-flex items-center gap-2 rounded-xl border border-white/10 px-4 py-3 text-sm text-white/70 hover:bg-white/5"><LogOut size={16}/> Sair</button>
       </header>
-      <section className="mt-8 rounded-2xl border border-cyan-200/20 bg-cyan-200/[.06] p-5">
-        <div className="flex gap-3"><ShieldCheck className="mt-1 shrink-0 text-cyan-200"/><div><h2 className="font-semibold">Como funciona</h2><p className="mt-1 text-sm leading-6 text-white/60">Você informa os detalhes do procedimento; o cliente recebe a ficha pré-preenchida, confere ou altera os dados, completa a anamnese, assina e salva em PDF para devolver pelo WhatsApp. Não há banco de dados.</p></div></div>
+      <section className="mt-8 rounded-2xl border border-amber-300/20 bg-amber-300/[.05] p-5">
+        <div className="flex gap-3"><ShieldCheck className="mt-1 shrink-0 text-cyan-200"/><div><h2 className="font-semibold">Aviso importante sobre segurança</h2><p className="mt-1 text-sm leading-6 text-white/70">Este painel usa apenas um bloqueio local do navegador: não é uma autenticação segura e não protege dados clínicos. Não armazene nem compartilhe informações pessoais ou de saúde por aqui. O cliente preenche a ficha no próprio aparelho e salva o PDF localmente; não há banco de dados nem envio automático das respostas.</p></div></div>
       </section>
 
       {!kind ? <section className="mt-8">
