@@ -275,3 +275,14 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .split .w > span { transform: none; }
   [data-parallax], [data-mouse] { transform: none !important; }
 }
+
+
+/* Oculta a assinatura visual da plataforma somente durante o login administrativo. */
+body:has(main[data-admin-login="true"]) #lovable-badge,
+body:has(main[data-admin-login="true"]) .lovable-badge,
+body:has(main[data-admin-login="true"]) [data-lovable-badge],
+body:has(main[data-admin-login="true"]) a[href*="lovable.dev"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
