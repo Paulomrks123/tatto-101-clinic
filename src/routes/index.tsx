@@ -186,7 +186,7 @@ function Index() {
       <div className="relative -rotate-2 scale-105 overflow-hidden border-y border-white/20 bg-[oklch(0.38_0.11_195)] py-4 text-white shadow-glow" aria-hidden="true">
         <div className="anim-marquee flex w-max gap-10 whitespace-nowrap font-display text-2xl italic md:text-4xl">
           {Array.from({ length: 2 }).flatMap((_, k) =>
-            ["Tatuagem", "Body piercing", "Cobertura de tatuagem", "Joias", "Atendimento atencioso", "Cuidado", "Itumbiara · GO"].map((t) => (
+            ["Tatuagem Realista Animal e Humana", "Tatuagem Oriental", "Tatuagem Maori", "Cover-up — Cobertura de Tatuagens Antigas e Cicatrizes", "Tatuagem em Aquarela", "Tatuagem Botânica e Ornamental", "Tatuagem Feminina Delicada", "Tatuagem Feminina Fine-Line", "Body Piercing", "Perfurações Corporais em Geral", "Harmonização Auricular", "Microdermal", "Surface", "Alargadores", "Perfurações Íntimas"].map((t) => (
               <span key={k + t} className="flex items-center gap-10">{t}<Sparkles size={20} className="text-white/85" /></span>
             )),
           )}
