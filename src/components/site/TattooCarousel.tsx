@@ -66,10 +66,10 @@ export function TattooCarousel() {
             </p>
           </div>
           <div className="reveal flex gap-3">
-            <button type="button" onClick={scrollPrev} aria-label="Ver imagem anterior" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
+            <button type="button" onClick={scrollPrev} aria-label="Ver imagem anterior" className="flex h-12 w-12 items-center justify-center rounded-xl border border-neon/60 !bg-primary !text-primary-foreground shadow-sm transition-colors hover:!brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon">
               <ArrowLeft size={20} />
             </button>
-            <button type="button" onClick={scrollNext} aria-label="Ver próxima imagem" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500">
+            <button type="button" onClick={scrollNext} aria-label="Ver próxima imagem" className="flex h-12 w-12 items-center justify-center rounded-xl border border-neon/60 !bg-primary !text-primary-foreground shadow-sm transition-colors hover:!brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon">
               <ArrowRight size={20} />
             </button>
           </div>
@@ -171,8 +171,8 @@ export function StudioVideo() {
             <p className="reveal mt-6 max-w-xl text-lg text-muted-foreground">Uma seleção de vídeos do estúdio, dos processos e da arte na pele. Os espaços extras já estão preparados para receber seus próximos vídeos.</p>
           </div>
           <div className="reveal flex gap-3">
-            <button type="button" onClick={() => move("prev")} aria-label="Vídeo anterior" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500"><ArrowLeft size={20}/></button>
-            <button type="button" onClick={() => move("next")} aria-label="Próximo vídeo" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500"><ArrowRight size={20}/></button>
+            <button type="button" onClick={() => move("prev")} aria-label="Vídeo anterior" className="flex h-12 w-12 items-center justify-center rounded-xl border border-neon/60 !bg-primary !text-primary-foreground shadow-sm transition-colors hover:!brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon"><ArrowLeft size={20}/></button>
+            <button type="button" onClick={() => move("next")} aria-label="Próximo vídeo" className="flex h-12 w-12 items-center justify-center rounded-xl border border-neon/60 !bg-primary !text-primary-foreground shadow-sm transition-colors hover:!brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon"><ArrowRight size={20}/></button>
           </div>
         </div>
         <div ref={emblaRef} className="reveal-blur mt-12 overflow-hidden">
@@ -197,7 +197,7 @@ export function StudioVideo() {
         <div className="mt-7 flex justify-center gap-2" aria-label="Selecionar vídeo">
           {VIDEO_ITEMS.map((item, index) => <button key={item.title} type="button" onClick={() => emblaApi?.scrollTo(index)} aria-label={`Ir para vídeo ${index + 1}`} aria-current={active === index ? "true" : undefined} className={`h-2 rounded-full transition-all ${active === index ? "w-8 bg-neon" : "w-2 bg-foreground/25"}`} />)}
         </div>
-        <a href={waLink("Olá! Vi os vídeos da 101Clinic e gostaria de agendar.")} target="_blank" rel="noopener" className="reveal btn-metal !bg-zinc-800 !text-white !border-zinc-700 hover:!bg-zinc-700 mx-auto mt-8 flex w-fit items-center gap-2 px-6 py-3 text-sm"><Play size={16}/> Agendar pelo WhatsApp</a>
+        <a href={waLink("Olá! Vi os vídeos da 101Clinic e gostaria de agendar.")} target="_blank" rel="noopener" className="reveal btn-metal mx-auto mt-8 flex w-fit items-center gap-2 px-6 py-3 text-sm"><Play size={16}/> Agendar pelo WhatsApp</a>
       </div>
     </section>
   );
@@ -253,8 +253,8 @@ export function PiercingCarousel() {
             <p className="reveal mt-6 max-w-xl text-lg text-muted-foreground">Conheça alguns trabalhos reais de body piercing realizados na 101Clinic, em Itumbiara.</p>
           </div>
           <div className="reveal flex gap-3">
-            <button type="button" onClick={scrollPrev} aria-label="Ver piercing anterior" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500"><ArrowLeft size={20}/></button>
-            <button type="button" onClick={scrollNext} aria-label="Ver próximo piercing" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500"><ArrowRight size={20}/></button>
+            <button type="button" onClick={scrollPrev} aria-label="Ver piercing anterior" className="flex h-12 w-12 items-center justify-center rounded-xl border border-neon/60 !bg-primary !text-primary-foreground shadow-sm transition-colors hover:!brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon"><ArrowLeft size={20}/></button>
+            <button type="button" onClick={scrollNext} aria-label="Ver próximo piercing" className="flex h-12 w-12 items-center justify-center rounded-xl border border-neon/60 !bg-primary !text-primary-foreground shadow-sm transition-colors hover:!brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon"><ArrowRight size={20}/></button>
           </div>
         </div>
         <div
@@ -345,8 +345,8 @@ export function JewelryCarousel() {
             <p className="reveal mt-6 max-w-xl text-lg text-muted-foreground">Inspire-se nos detalhes e encontre a joia que combina com seu estilo.</p>
           </div>
           <div className="reveal flex gap-3">
-            <button type="button" onClick={prev} aria-label="Ver joia anterior" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500"><ArrowLeft size={20}/></button>
-            <button type="button" onClick={next} aria-label="Ver próxima joia" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500"><ArrowRight size={20}/></button>
+            <button type="button" onClick={prev} aria-label="Ver joia anterior" className="flex h-12 w-12 items-center justify-center rounded-xl border border-neon/60 !bg-primary !text-primary-foreground shadow-sm transition-colors hover:!brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon"><ArrowLeft size={20}/></button>
+            <button type="button" onClick={next} aria-label="Ver próxima joia" className="flex h-12 w-12 items-center justify-center rounded-xl border border-neon/60 !bg-primary !text-primary-foreground shadow-sm transition-colors hover:!brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon"><ArrowRight size={20}/></button>
           </div>
         </div>
         <div className="reveal-blur mt-12 outline-none" role="region" aria-roledescription="carrossel" aria-label="Seis imagens de joias para piercing" tabIndex={0}
@@ -374,7 +374,7 @@ export function JewelryCarousel() {
         <div className="mt-7 flex items-center justify-center gap-2" aria-label="Escolher joia">
           {scrollSnaps.map((_, index) => <button key={index} type="button" onClick={() => to(index)} aria-label={`Ir para a joia ${index + 1}`} aria-current={index === selectedSnap ? "true" : undefined} className={`h-2 rounded-full transition-all duration-300 ${index === selectedSnap ? "w-8 bg-neon" : "w-2 bg-foreground/25 hover:bg-foreground/50"}`} />)}
         </div>
-        <a href={waLink("Olá! Gostaria de conhecer as joias disponíveis para piercing na 101Clinic.")} target="_blank" rel="noopener" className="reveal btn-metal !bg-zinc-800 !text-white !border-zinc-700 hover:!bg-zinc-700 mx-auto mt-8 flex w-fit items-center gap-2 px-6 py-3 text-sm"><Gem size={16}/> Consultar joias pelo WhatsApp</a>
+        <a href={waLink("Olá! Gostaria de conhecer as joias disponíveis para piercing na 101Clinic.")} target="_blank" rel="noopener" className="reveal btn-metal mx-auto mt-8 flex w-fit items-center gap-2 px-6 py-3 text-sm"><Gem size={16}/> Consultar joias pelo WhatsApp</a>
       </div>
     </section>
   );
