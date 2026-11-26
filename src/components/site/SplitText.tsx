@@ -2,6 +2,11 @@ import type { ElementType, ReactNode } from "react";
 
 type Part = string | { em: string };
 
+/** Renderiza o e comercial com a mesma família tipográfica definida para o símbolo. */
+export function Ampersand() {
+  return <span aria-label="&" className="font-display not-italic font-normal text-current">{"&"}</span>;
+}
+
 /** Headline revealed word by word through a mask. `{ em }` parts get the gradient accent. */
 export function SplitText({ as: Tag = "h2", parts, className = "", delay = 0 }: { as?: ElementType; parts: Part[]; className?: string; delay?: number }) {
   let i = 0;
