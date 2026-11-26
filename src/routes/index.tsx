@@ -78,7 +78,8 @@ function Index() {
       <header className="fixed inset-x-0 top-0 z-50">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 md:px-10">
           <a href="#topo" className="glass flex items-center gap-2 rounded-full px-4 py-2 font-display text-2xl">
-            <StudioMark className="text-neon" /> Clinic
+            <img src="/IMG-20261125-WA0061(1).jpg" alt="Logotipo 101Clinic" className="h-8 w-8 rounded-full object-cover" />
+            <span>101 Clinic</span>
           </a>
           <nav className="glass hidden items-center gap-1 rounded-full p-1.5 text-sm md:flex" aria-label="Principal">
             {NAV.map(([l, h]) => (
