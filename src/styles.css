@@ -59,8 +59,8 @@
   --cobalt: oklch(0.57 0.22 265);
   --neon: oklch(0.78 0.13 195);
   --cream: oklch(0.96 0.025 82);
-  --primary: var(--neon);
-  --primary-foreground: oklch(0.14 0.03 266);
+  --primary: oklch(0.50 0.12 195);
+  --primary-foreground: oklch(0.99 0 0);
   --secondary: oklch(0.21 0.04 266);
   --secondary-foreground: var(--foreground);
   --muted: oklch(0.21 0.04 266);
@@ -90,7 +90,9 @@
   --surface: oklch(0.95 0.012 250);
   --card: oklch(0.995 0.002 250);
   --cobalt: oklch(0.9 0.045 265);
-  --neon: oklch(0.58 0.14 195);
+  --neon: oklch(0.50 0.12 195);
+  --primary: oklch(0.46 0.12 195);
+  --primary-foreground: oklch(0.99 0 0);
   --cream: oklch(0.23 0.025 266);
   --secondary: oklch(0.92 0.018 250);
   --muted: var(--secondary);
@@ -158,8 +160,8 @@
 }
 @utility btn-metal {
   position: relative; overflow: hidden; isolation: isolate; border-radius: 999px;
-  color: var(--primary-foreground);
-  background: linear-gradient(160deg, oklch(0.88 0.10 190), var(--neon) 48%, oklch(0.58 0.14 205));
+  color: oklch(0.99 0 0);
+  background: linear-gradient(160deg, oklch(0.56 0.13 190), var(--primary) 48%, oklch(0.40 0.12 202));
   border: 1px solid oklch(1 0 0 / 38%);
   box-shadow: inset 0 1px 1px oklch(1 0 0 / 55%), inset 0 -3px 4px oklch(0 0 0 / 25%), 0 14px 30px -10px oklch(0.68 0.15 195 / 62%), 0 0 0 4px oklch(0.68 0.15 195 / 12%);
   transition: transform 400ms var(--ease-out), box-shadow 400ms ease, filter 400ms ease;
