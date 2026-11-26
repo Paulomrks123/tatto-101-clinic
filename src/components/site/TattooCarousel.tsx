@@ -204,46 +204,94 @@ export function StudioVideo() {
 }
 
 
-/** Área independente para o portfólio de piercings. Não usa fotos de tatuagem como substitutas. */
+/** Carrossel independente com fotos reais do portfólio de piercings. */
 export function PiercingCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", loop: false });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", loop: true });
+  const [selectedSnap, setSelectedSnap] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
   const items = [
-    { title: "Piercings de orelha", detail: "Espaço reservado para fotos reais dos trabalhos." },
-    { title: "Piercings faciais", detail: "Espaço reservado para fotos reais dos trabalhos." },
-    { title: "Joias e detalhes", detail: "Espaço reservado para fotos reais das joias." },
+    { src: "/IMG-20261126-WA0050.jpg", alt: "Foto real de trabalho de piercing da 101Clinic" },
+    { src: "/IMG-20261126-WA0046.jpg", alt: "Registro de piercing realizado na 101Clinic" },
+    { src: "/IMG-20261126-WA0045.jpg", alt: "Foto de portfólio de piercing da 101Clinic" },
+    { src: "/IMG-20261126-WA0039.jpg", alt: "Trabalho de body piercing realizado na 101Clinic" },
+    { src: "/IMG-20261126-WA0038.jpg", alt: "Registro de body piercing do estúdio 101Clinic" },
   ];
 
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+  const scrollTo = useCallback((index: number) => emblaApi?.scrollTo(index), [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const update = () => {
+      setSelectedSnap(emblaApi.selectedScrollSnap());
+      setScrollSnaps(emblaApi.scrollSnapList());
+    };
+    update();
+    emblaApi.on("select", update).on("reInit", update);
+    return () => {
+      emblaApi.off("select", update).off("reInit", update);
+    };
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const autoplay = window.setInterval(() => {
+      if (!document.hidden) emblaApi.scrollNext();
+    }, 4200);
+    return () => window.clearInterval(autoplay);
+  }, [emblaApi]);
+
   return (
-    <section id="piercings" aria-label="Carrossel de piercings da 101Clinic" className="relative overflow-hidden bg-surface py-24 md:py-32">
+    <section id="piercings" aria-label="Carrossel de fotos reais de piercings da 101Clinic" className="relative overflow-hidden bg-surface py-24 md:py-32">
+      <div data-parallax="-0.05" className="pointer-events-none absolute -left-40 top-10 h-[460px] w-[460px] rounded-full bg-cobalt/20 blur-[120px]" />
       <div className="relative mx-auto max-w-7xl px-5 md:px-10">
         <div className="flex flex-col justify-between gap-7 md:flex-row md:items-end">
           <div className="max-w-2xl">
             <p className="reveal flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.35em] text-neon"><span className="h-px w-10 bg-neon" /> 04 — Piercings</p>
             <SplitText className="mt-6 font-display text-5xl leading-[.95] md:text-7xl" parts={["Detalhes que", { em: "fazem diferença." }]} />
-            <p className="reveal mt-6 max-w-xl text-lg text-muted-foreground">Portfólio de piercings e joias da 101Clinic. As imagens reais serão adicionadas assim que os arquivos estiverem acessíveis.</p>
+            <p className="reveal mt-6 max-w-xl text-lg text-muted-foreground">Conheça alguns trabalhos reais de body piercing realizados na 101Clinic, em Itumbiara.</p>
           </div>
           <div className="reveal flex gap-3">
-            <button type="button" onClick={() => emblaApi?.scrollPrev()} aria-label="Piercing anterior" className="btn-chrome flex h-12 w-12 items-center justify-center"><ArrowLeft size={20}/></button>
-            <button type="button" onClick={() => emblaApi?.scrollNext()} aria-label="Próximo piercing" className="btn-metal flex h-12 w-12 items-center justify-center"><ArrowRight size={20}/></button>
+            <button type="button" onClick={scrollPrev} aria-label="Ver piercing anterior" className="btn-chrome flex h-12 w-12 items-center justify-center"><ArrowLeft size={20}/></button>
+            <button type="button" onClick={scrollNext} aria-label="Ver próximo piercing" className="btn-metal flex h-12 w-12 items-center justify-center"><ArrowRight size={20}/></button>
           </div>
         </div>
-        <div ref={emblaRef} className="reveal-blur mt-12 overflow-hidden">
-          <div className="-ml-4 flex touch-pan-y">
-            {items.map((item, index) => (
-              <article key={item.title} className="min-w-0 flex-[0_0_86%] pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_33.333333%]">
-                <div className="surface-premium flex min-h-[360px] flex-col justify-between overflow-hidden rounded-3xl p-7 md:min-h-[420px]">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-neon/30 bg-neon/5 text-neon"><Gem size={26}/></div>
-                  <div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-neon">Portfólio · 0{index + 1}</p>
-                    <h3 className="mt-3 font-display text-3xl md:text-4xl">{item.title}</h3>
-                    <p className="mt-3 max-w-sm text-sm text-muted-foreground">{item.detail}</p>
-                    <span className="mt-6 inline-flex rounded-full border border-border px-3 py-1.5 text-[10px] uppercase tracking-widest text-muted-foreground">Aguardando fotos reais</span>
-                  </div>
+        <div
+          className="reveal-blur mt-12 outline-none"
+          role="region"
+          aria-roledescription="carrossel"
+          aria-label="Cinco fotos de trabalhos de piercing"
+          tabIndex={0}
+          onKeyDown={(event) => {
+            if (event.key === "ArrowLeft") { event.preventDefault(); scrollPrev(); }
+            if (event.key === "ArrowRight") { event.preventDefault(); scrollNext(); }
+          }}
+        >
+          <div ref={emblaRef} className="overflow-hidden">
+            <div className="-ml-4 flex touch-pan-y">
+              {items.map((item, index) => (
+                <div key={item.src} role="group" aria-roledescription="slide" aria-label={`${index + 1} de ${items.length}`} className="min-w-0 flex-[0_0_86%] pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_33.333333%]">
+                  <figure className="surface-premium overflow-hidden rounded-3xl p-2">
+                    <div className="overflow-hidden rounded-[1.3rem] bg-ink">
+                      <img src={item.src} alt={item.alt} width={900} height={1200} loading="lazy" draggable={false} className="aspect-[3/4] w-full select-none object-cover transition duration-700 hover:scale-[1.03]" />
+                    </div>
+                    <figcaption className="flex items-center justify-between px-3 py-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                      <span>Body piercing · 101Clinic</span>
+                      <span>{String(index + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}</span>
+                    </figcaption>
+                  </figure>
                 </div>
-              </article>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
+        <div className="mt-7 flex items-center justify-center gap-2" aria-label="Escolher foto de piercing">
+          {scrollSnaps.map((_, index) => (
+            <button key={index} type="button" onClick={() => scrollTo(index)} aria-label={`Ir para a posição ${index + 1}`} aria-current={index === selectedSnap ? "true" : undefined} className={`h-2 rounded-full transition-all duration-300 ${index === selectedSnap ? "w-8 bg-neon" : "w-2 bg-foreground/25 hover:bg-foreground/50"}`} />
+          ))}
+        </div>
+        <a href={waLink("Olá! Vi o portfólio de piercings da 101Clinic e gostaria de saber mais.")} target="_blank" rel="noopener" className="reveal btn-metal mx-auto mt-8 flex w-fit items-center gap-2 px-6 py-3 text-sm"><Gem size={16}/> Consultar piercing pelo WhatsApp</a>
       </div>
     </section>
   );
