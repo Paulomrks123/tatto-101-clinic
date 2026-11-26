@@ -8,7 +8,7 @@ export function ThemeToggle() {
   useEffect(() => {
     let saved = false;
     try {
-      const preference = localStorage.getItem("clinic-theme");
+      const preference = localStorage.getItem("clinic-theme-v2");
       saved = preference === null ? true : preference === "light";
     } catch { /* Storage may be unavailable in private browsing. */ }
     setLight(saved);
@@ -22,7 +22,7 @@ export function ThemeToggle() {
     document.documentElement.classList.toggle("light", next);
     document.documentElement.classList.toggle("dark", !next);
     try {
-      localStorage.setItem("clinic-theme", next ? "light" : "dark");
+      localStorage.setItem("clinic-theme-v2", next ? "light" : "dark");
     } catch { /* The toggle still works without persistent storage. */ }
   }
 
