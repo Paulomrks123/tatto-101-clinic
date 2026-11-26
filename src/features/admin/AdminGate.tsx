@@ -109,7 +109,7 @@ export function AdminGate() {
           <button
             type="submit"
             disabled={busy}
-            className="group flex w-full items-center justify-center gap-3 rounded-xl border border-white/35 bg-white/15 px-5 py-3.5 text-sm font-semibold text-white shadow-lg backdrop-blur-xl transition hover:border-white/60 hover:bg-white/25 active:scale-[.99] disabled:cursor-wait disabled:opacity-60"
+            className="group flex w-full items-center justify-center gap-3 rounded-xl border border-cyan-200/55 bg-cyan-400/20 px-5 py-3.5 text-sm font-semibold text-white shadow-[0_10px_32px_-12px_rgba(34,211,238,.65)] backdrop-blur-xl transition hover:border-cyan-100/80 hover:bg-cyan-400/35 active:scale-[.99] disabled:cursor-wait disabled:opacity-60"
           >
             <span>{busy ? "Aguarde..." : "Entrar"}</span>
             <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" />
