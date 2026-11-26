@@ -7,7 +7,7 @@ import sketch from "@/assets/sketch.jpg";
 import { BIZ, waLink, WA_DEFAULT } from "@/components/site/data";
 import { useScrollFx } from "@/components/site/useScrollFx";
 import { SplitText } from "@/components/site/SplitText";
-import { TattooCarousel } from "@/components/site/TattooCarousel";
+import { TattooCarousel, StudioVideo } from "@/components/site/TattooCarousel";
 import { ThemeToggle } from "@/components/site/ThemeToggle";
 
 const TITLE = "101Clinic Tattoo & Body Piercing | Tatuagem e Piercing em Itumbiara";
@@ -187,6 +187,7 @@ function Index() {
       </section>
 
       <TattooCarousel />
+      <StudioVideo />
 
       {/* SERVIÇOS */}
       <section id="servicos" className="relative overflow-hidden bg-surface py-28 md:py-40">
