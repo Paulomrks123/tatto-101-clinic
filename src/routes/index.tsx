@@ -338,45 +338,59 @@ function Index() {
         <div className="pointer-events-none absolute inset-0 opacity-40"><div className="aurora h-full w-full" /></div>
         <div className="relative mx-auto max-w-7xl px-5 md:px-10">
           <Eyebrow n="05">Orientações importantes</Eyebrow>
-          <SplitText className="mt-6 max-w-3xl font-display text-5xl leading-[0.95] md:text-7xl" parts={["Cuide da sua", { em: "pele." }]} />
-          <p className="mt-6 max-w-2xl text-muted-foreground">Os cuidados corretos ajudam no processo de cicatrização. As orientações podem variar conforme a região, a técnica e cada pessoa: siga sempre as instruções dadas pelo profissional que realizou o procedimento.</p>
+          <SplitText className="mt-6 max-w-3xl font-display text-5xl leading-[0.95] md:text-7xl" parts={["Cuidados com", { em: "você." }]} />
+          <p className="mt-6 max-w-2xl text-muted-foreground">Confira as orientações de cuidados após seu procedimento na 101Clinic. Em caso de dúvida, fale diretamente com o profissional que realizou o atendimento.</p>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <article className="surface-premium rounded-3xl p-7 md:p-9">
-              <h3 className="font-display text-3xl md:text-4xl">Tatuagem</h3>
-              <p className="mt-2 text-sm font-semibold uppercase tracking-widest text-neon">Após o procedimento</p>
-              <ul className="mt-6 space-y-3 text-sm leading-6 text-muted-foreground">
-                <li>• Lave as mãos antes de tocar na tatuagem.</li>
-                <li>• Higienize delicadamente conforme a orientação recebida; não esfregue nem use buchas.</li>
-                <li>• Use apenas o produto indicado pelo profissional, em camada fina quando recomendado.</li>
-                <li>• Não arranque casquinhas, não coce e evite atrito ou roupas apertadas sobre a área.</li>
-                <li>• Evite piscina, mar, banheira e exposição solar direta até a cicatrização.</li>
-                <li>• Não aplique álcool, água oxigenada, receitas caseiras ou pomadas por conta própria.</li>
-              </ul>
+              <h3 className="font-display text-3xl md:text-4xl">Cuidados com a sua tatuagem</h3>
+              <h4 className="mt-6 text-sm font-bold uppercase tracking-widest text-neon">O que eu não devo fazer</h4>
+              <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-6 text-muted-foreground">
+                <li>Não expor a tatuagem a fatores externos, como sol, piscina, cachoeira, mar, chuva, lama e poeira, durante 15 dias.</li>
+                <li>Não treinar, jogar futebol ou fazer atividades físicas durante 15 dias.</li>
+                <li>Evitar carne de porco, bacon, chocolate, ovo, pequi, pimenta e alimentos enlatados, gordurosos ou condimentados durante 15 dias.</li>
+                <li>Não coçar nem arrancar as casquinhas que forem surgindo.</li>
+                <li>Não utilizar produtos químicos na tatuagem que não tenham sido recomendados pelo tatuador.</li>
+                <li>Evitar qualquer contato do local tatuado com fluidos biológicos, como saliva humana ou animal.</li>
+              </ol>
+              <h4 className="mt-8 text-sm font-bold uppercase tracking-widest text-neon">O que eu posso fazer</h4>
+              <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-6 text-muted-foreground">
+                <li>Tomar banho com água em temperatura natural ou fria nos primeiros 2 dias.</li>
+                <li>Aplicar uma camada fina de pomada 3 vezes ao dia durante 20 dias, somente se o produto tiver sido indicado pelo profissional ou por um profissional de saúde.</li>
+                <li>No banho, usar sabonete, shampoo e condicionador neutros durante 20 dias.</li>
+                <li>Usar roupas leves sobre o local tatuado nos primeiros 7 dias.</li>
+                <li>Em caso de dúvida, ligar diretamente para o tatuador.</li>
+                <li>Voltar ao estúdio para uma avaliação após 20 dias de cicatrização.</li>
+              </ol>
             </article>
             <article className="surface-premium rounded-3xl p-7 md:p-9">
-              <h3 className="font-display text-3xl md:text-4xl">Piercing</h3>
-              <p className="mt-2 text-sm font-semibold uppercase tracking-widest text-neon">Durante a cicatrização</p>
-              <ul className="mt-6 space-y-3 text-sm leading-6 text-muted-foreground">
-                <li>• Higienize as mãos antes de encostar na região.</li>
-                <li>• Limpe com soro fisiológico estéril 0,9%, conforme a orientação do profissional.</li>
-                <li>• Não gire, puxe ou fique movimentando a joia.</li>
-                <li>• Evite pressão, atrito, maquiagem e produtos cosméticos sobre a perfuração.</li>
-                <li>• Evite piscinas, lagos, mar e imersão durante a fase inicial de cicatrização.</li>
-                <li>• Não retire nem troque a joia por conta própria; peça avaliação ao profissional.</li>
-              </ul>
+              <h3 className="font-display text-3xl md:text-4xl">Cuidados com o seu piercing</h3>
+              <h4 className="mt-6 text-sm font-bold uppercase tracking-widest text-neon">O que eu não devo fazer</h4>
+              <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-6 text-muted-foreground">
+                <li>Não tocar no piercing com as mãos sujas.</li>
+                <li>Não rodar nem movimentar a joia durante a cicatrização; faça a limpeza sem girá-la.</li>
+                <li>Evitar carne de porco, bacon, alimentos enlatados ou em conserva, gema de ovo, chocolate, açaí e alimentos gordurosos ou condimentados, conforme orientação individual do profissional.</li>
+                <li>Evitar atrito e contato com fluidos biológicos ou produtos químicos, como saliva humana ou animal, shampoos, tinturas para cabelo, sabonete caseiro, perfume, maquiagem, água clorada de piscinas, água do mar, cachoeiras e rios.</li>
+                <li>Não dormir em cima da perfuração.</li>
+                <li>Não utilizar álcool, água oxigenada ou pomadas sem orientação de um profissional de saúde.</li>
+              </ol>
+              <h4 className="mt-8 text-sm font-bold uppercase tracking-widest text-neon">O que eu tenho que fazer</h4>
+              <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-6 text-muted-foreground">
+                <li>Lavar o local perfurado 2 vezes ao dia com água corrente e sabonete neutro, durante 30 dias, sem esfregar.</li>
+                <li>Secar delicadamente o local com material limpo e descartável, sem deixar a região úmida.</li>
+                <li>Utilizar soro fisiológico estéril 0,9% em ampola para a higiene, conforme orientação do profissional.</li>
+                <li>Usar spray antisséptico somente se indicado especificamente pelo profissional responsável ou por profissional de saúde.</li>
+                <li>Em perfurações na região bucal, gelo pode ajudar a aliviar o inchaço. Após as refeições, higienizar a boca conforme orientação do profissional; prefira antisséptico bucal sem álcool quando recomendado.</li>
+                <li>Na região bucal, não brincar com a joia, não colocá-la para fora, não movimentá-la de um lado para o outro e não passar a língua sobre a perfuração.</li>
+                <li>Em caso de dúvida, entrar em contato imediatamente com o body piercer.</li>
+                <li>Retornar ao estúdio após 10 dias para uma avaliação.</li>
+              </ol>
             </article>
           </div>
-          <div className="mt-6 grid gap-6 md:grid-cols-2">
-            <article className="rounded-3xl border border-amber-400/30 bg-amber-400/5 p-7">
-              <h3 className="font-semibold">Sinais de alerta</h3>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">Procure avaliação de um profissional de saúde se houver vermelhidão que aumenta ou se espalha, dor ou inchaço intensos ou progressivos, calor local importante, pus, mau cheiro ou febre. Em caso de dificuldade para respirar, desmaio ou reação intensa, procure atendimento de urgência.</p>
-            </article>
-            <article className="surface-premium rounded-3xl p-7">
-              <h3 className="font-semibold">Antes de fazer</h3>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">Alimente-se, hidrate-se e compareça descansado. Informe ao profissional sobre alergias, medicamentos, condições de saúde, problemas de cicatrização ou alterações na pele. Não faça o procedimento sobre pele irritada ou lesionada sem avaliação.</p>
-            </article>
+          <div className="mt-6 rounded-3xl border border-amber-400/30 bg-amber-400/5 p-7">
+            <h3 className="font-semibold">Atenção</h3>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">Os prazos e cuidados podem variar conforme o local, a técnica e a resposta de cada organismo. Pomadas, antibióticos tópicos e sprays antissépticos não devem ser usados por conta própria: utilize-os somente com orientação adequada. Restrições alimentares gerais não são necessárias para todas as pessoas. Se houver dor ou inchaço intensos ou progressivos, vermelhidão que se espalha, secreção purulenta ou febre, procure avaliação de um profissional de saúde. Em caso de sintomas graves, procure atendimento de urgência.</p>
           </div>
-          <p className="mt-6 text-xs leading-6 text-muted-foreground">Conteúdo educativo e geral; não substitui avaliação médica nem as instruções individualizadas do profissional. Cada local do corpo pode exigir cuidados diferentes. Se tiver dúvidas ou perceber piora, entre em contato com a clínica e procure orientação de saúde.</p>
+          <p className="mt-6 text-xs leading-6 text-muted-foreground">Estas orientações são informativas e não substituem avaliação de um profissional de saúde nem as recomendações individualizadas dadas durante o atendimento.</p>
         </div>
       </section>
 
