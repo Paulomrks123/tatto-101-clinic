@@ -7,7 +7,7 @@ import sketch from "@/assets/sketch.jpg";
 import { BIZ, waLink, WA_DEFAULT } from "@/components/site/data";
 import { useScrollFx } from "@/components/site/useScrollFx";
 import { Ampersand, SplitText } from "@/components/site/SplitText";
-import { TattooCarousel, StudioVideo } from "@/components/site/TattooCarousel";
+import { TattooCarousel, StudioVideo, PiercingCarousel } from "@/components/site/TattooCarousel";
 import { ThemeToggle } from "@/components/site/ThemeToggle";
 import { AlexandreBio } from "@/components/site/AlexandreBio";
 
@@ -44,6 +44,9 @@ export const Route = createFileRoute("/")({
 
 const NAV = [
   ["Estúdio", "#estudio"],
+  ["Vídeos", "#video"],
+  ["Tatuagens", "#trabalhos"],
+  ["Piercings", "#piercings"],
   ["Serviços", "#servicos"],
   ["Processo", "#processo"],
   ["Cuidados", "#cuidados"],
@@ -191,6 +194,7 @@ function Index() {
       <AlexandreBio />
       <TattooCarousel />
       <StudioVideo />
+      <PiercingCarousel />
 
       {/* SERVIÇOS */}
       <section id="servicos" className="relative overflow-hidden bg-surface py-28 md:py-40">
