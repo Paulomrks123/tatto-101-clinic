@@ -3,23 +3,23 @@ import { waLink } from "@/components/site/data";
 import { Ampersand } from "@/components/site/SplitText";
 
 const tattooSpecialties = [
-  "Realismo animal e humano",
-  "Tatuagem oriental",
-  "Tatuagem maori",
-  "Cover-up — cobertura de tatuagens antigas e cicatrizes",
-  "Tatuagem em aquarela",
-  "Tatuagem botânica e ornamental",
-  "Tatuagens femininas delicadas",
-  "Fine line feminina",
+  "Tatuagem Realista Animal e Humana",
+  "Tatuagem Oriental",
+  "Tatuagem Maori",
+  "Tatuagem Cover-up — Cobertura de Tatuagens Antigas e Cicatrizes",
+  "Tatuagem em Aquarela",
+  "Tatuagem Botânica e Ornamental",
+  "Tatuagem Feminina Delicada",
+  "Tatuagem Feminina Fine-Line",
 ];
 
 const piercingSpecialties = [
-  "Perfurações corporais em geral",
-  "Harmonização auricular",
+  "Perfurações Corporais (Geral)",
+  "Harmonização Auricular",
   "Microdermal",
   "Surface",
   "Alargadores",
-  "Perfurações íntimas",
+  "Perfurações Íntimas",
 ];
 
 function SpecialtyList({ title, items }: { title: string; items: string[] }) {
@@ -53,7 +53,7 @@ export function AlexandreBio() {
           <p className="reveal flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.35em] text-neon"><span className="h-px w-10 bg-neon" /> 02 — Nossa história</p>
           <h2 className="reveal mt-6 font-display text-5xl leading-[.95] md:text-7xl">Alexandre <span className="italic text-neon">Coelho.</span></h2>
           <div className="reveal mt-5 inline-flex items-center gap-2 rounded-full border border-neon/30 bg-neon/10 px-4 py-2 text-sm text-neon"><Award size={17}/> 25 anos de profissão</div>
-          <p className="reveal mt-7 text-lg leading-8 text-muted-foreground">Com 25 anos de experiência no universo da arte corporal, Alexandre Coelho construiu sua trajetória com dedicação, técnica e compromisso com cada trabalho. À frente da 101Clinic Tattoo <Ampersand /> Body Piercing, valoriza a expressão individual, o atendimento personalizado e a atenção aos detalhes.</p>
+          <p className="reveal mt-7 text-lg leading-8 text-muted-foreground">Com 25 anos de experiência no universo da arte corporal, Alexandre Coelho construiu sua trajetória com dedicação, técnica e compromisso com cada trabalho. À frente da 101Clinic Tattoo <Ampersand /> Body Piercing, une sua experiência em tatuagem e body piercing à expressão individual, ao atendimento personalizado e à atenção aos detalhes.</p>
           <p className="reveal mt-4 text-lg leading-8 text-muted-foreground">Para Alexandre, cada projeto começa com uma boa conversa e respeito à história de quem escolhe transformar uma ideia em arte na pele.</p>
           <SpecialtyList title="Especialidades em Tatuagem" items={tattooSpecialties} />
           <SpecialtyList title="Especialidades em Piercing" items={piercingSpecialties} />
