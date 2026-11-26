@@ -6,7 +6,7 @@ import fineline from "@/assets/fineline.jpg";
 import sketch from "@/assets/sketch.jpg";
 import { BIZ, waLink, WA_DEFAULT } from "@/components/site/data";
 import { useScrollFx } from "@/components/site/useScrollFx";
-import { SplitText } from "@/components/site/SplitText";
+import { Ampersand, SplitText } from "@/components/site/SplitText";
 import { TattooCarousel, StudioVideo } from "@/components/site/TattooCarousel";
 import { ThemeToggle } from "@/components/site/ThemeToggle";
 import { AlexandreBio } from "@/components/site/AlexandreBio";
@@ -166,7 +166,7 @@ function Index() {
             <Eyebrow n="01">O estúdio</Eyebrow>
             <SplitText className="mt-6 font-display text-5xl leading-[0.92] md:text-7xl" parts={["Arte com calma,", { em: "cuidado" }, "e mão firme."]} />
             <div className="mt-8 space-y-5 text-lg text-muted-foreground">
-              <p className="reveal">A 101Clinic Tattoo & Body Piercing fica na R. V 8, nº 4, em Vila Vitoria, Itumbiara - GO. Um estúdio de tatuagem e colocação de piercing para quem busca arte na pele e atendimento cuidadoso.</p>
+              <p className="reveal">A 101Clinic Tattoo <Ampersand /> Body Piercing fica na R. V 8, nº 4, em Vila Vitoria, Itumbiara - GO. Um estúdio de tatuagem e colocação de piercing para quem busca arte na pele e atendimento cuidadoso.</p>
               <p className="reveal">Quem passou por aqui costuma destacar o atendimento atencioso, a qualidade do resultado e o espaço limpo e organizado.</p>
             </div>
             <dl className="reveal mt-10 grid grid-cols-3 gap-3">
@@ -361,7 +361,7 @@ function Index() {
                   </span>
                   <span>
                     <span className="block font-display text-2xl tracking-wide text-foreground">101<span className="text-neon">CLINIC</span></span>
-                    <span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground">Tattoo & Body Piercing · Itumbiara</span>
+                    <span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground">Tattoo <Ampersand /> Body Piercing · Itumbiara</span>
                   </span>
                 </a>
                 <p className="mt-6 max-w-sm text-sm leading-7 text-muted-foreground">Tatuagem e body piercing em Itumbiara. Arte na pele e cuidado em cada detalhe.</p>
@@ -386,7 +386,7 @@ function Index() {
               </div>
             </div>
             <div className="mt-12 flex flex-col gap-4 border-t border-border pt-6 text-[11px] leading-5 text-muted-foreground md:flex-row md:items-center md:justify-between">
-              <span>© {new Date().getFullYear()} 101Clinic Tattoo & Body Piercing. Todos os direitos reservados.</span>
+              <span>© {new Date().getFullYear()} 101Clinic Tattoo <Ampersand /> Body Piercing. Todos os direitos reservados.</span>
             </div>
           </div>
         </footer>
