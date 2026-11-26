@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, MapPin, Clock, Phone, Star, Menu, X, MessageCircle, Sparkles, ShieldCheck, PenTool, HeartHandshake } from "lucide-react";
 import hero from "@/assets/hero-tattoo.jpg";
 import fineline from "@/assets/fineline.jpg";
@@ -71,9 +71,30 @@ function Eyebrow({ n, children }: { n: string; children: string }) {
 function Index() {
   useScrollFx();
   const [open, setOpen] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [showAudioButton, setShowAudioButton] = useState(false);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.volume = 0.35;
+    audio.play().then(() => setShowAudioButton(false)).catch(() => setShowAudioButton(true));
+  }, []);
+
+  const startBackgroundAudio = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.play().then(() => setShowAudioButton(false)).catch(() => setShowAudioButton(true));
+  };
 
   return (
     <div className="relative min-w-0 max-w-full overflow-x-clip bg-background text-foreground">
+      <audio ref={audioRef} src="/101%20CLINIC.mp3" loop preload="auto" aria-label="Trilha sonora 101Clinic" />
+      {showAudioButton && (
+        <button type="button" onClick={startBackgroundAudio} className="fixed bottom-5 left-5 z-[60] rounded-full border border-neon/50 bg-background/95 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-foreground shadow-lg backdrop-blur transition-colors hover:bg-neon hover:text-background" aria-label="Ativar música de fundo">
+          Ativar música ♪
+        </button>
+      )}
       {/* HEADER */}
       <header className="fixed inset-x-0 top-0 z-50">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 md:px-10">
