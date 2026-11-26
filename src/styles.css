@@ -85,10 +85,10 @@
 
 :root.light {
   color-scheme: light;
-  --ink: oklch(0.985 0.004 250);
+  --ink: #ffffff;
   --ink-foreground: oklch(0.23 0.025 266);
   --surface: oklch(0.95 0.012 250);
-  --card: oklch(0.995 0.002 250);
+  --card: #ffffff;
   --cobalt: oklch(0.9 0.045 265);
   --neon: oklch(0.50 0.12 195);
   --primary: oklch(0.46 0.12 195);
