@@ -2,6 +2,7 @@ import { useRef, useState, type PointerEvent } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, Download, MessageCircle, ShieldCheck } from "lucide-react";
 import { waLink } from "@/components/site/data";
+import { Ampersand } from "@/components/site/SplitText";
 
 export const Route = createFileRoute("/ficha/$token")({
   head: () => ({ meta: [{ title: "Ficha de atendimento | 101Clinic" }, { name: "robots", content: "noindex,nofollow" }] }),
@@ -11,7 +12,9 @@ export const Route = createFileRoute("/ficha/$token")({
 type Answers = Record<string, string>;
 function ClientForm() {
   const { token } = Route.useParams();
-  const kind = token.toLowerCase() === "piercing" ? "piercing" : "tatuagem";
+  const normalizedToken = token.toLowerCase();
+  const validToken = normalizedToken === "piercing" || normalizedToken === "tatuagem";
+  const kind = normalizedToken === "piercing" ? "piercing" : "tatuagem";
   const title = kind === "piercing" ? "Ficha de piercing" : "Ficha de tatuagem";
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const drawing = useRef(false);
@@ -64,6 +67,8 @@ function ClientForm() {
   function clearSignature(){const c=canvasRef.current;const ctx=c?.getContext("2d");if(c&&ctx)ctx.clearRect(0,0,c.width,c.height);setSigned(false);}
   function printForm(){setSaved(true);window.setTimeout(()=>window.print(),100);}
   const fieldClass="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-cyan-600";
+  if (!validToken) return <main className="flex min-h-screen items-center justify-center bg-[#f3f5f7] px-5 text-slate-900"><section className="max-w-md rounded-2xl bg-white p-8 text-center shadow-sm"><h1 className="text-2xl font-semibold">Ficha não encontrada</h1><p className="mt-3 text-sm text-slate-600">O tipo de ficha informado é inválido. Solicite um novo link à 101Clinic.</p><Link to="/" className="mt-6 inline-block text-sm text-cyan-800 underline">Voltar ao site</Link></section></main>;
+
   return <main className="min-h-screen bg-[#f3f5f7] px-4 py-8 text-slate-900 md:px-6">
     <article className="mx-auto max-w-3xl rounded-2xl bg-white p-5 shadow-sm md:p-9 print:max-w-none print:p-0 print:shadow-none">
       <header className="border-b border-slate-200 pb-6"><p className="font-mono text-xs uppercase tracking-[.25em] text-cyan-800">101Clinic Tattoo <Ampersand /> Body Piercing</p><h1 className="mt-3 text-3xl font-semibold">{title}</h1><p className="mt-2 text-sm text-slate-500">A equipe preparou alguns detalhes do procedimento. Confira e altere se necessário. Os campos marcados com * são obrigatórios.</p></header>
