@@ -162,7 +162,7 @@ function Index() {
           <p className="anim-fade-up font-mono text-[11px] uppercase tracking-[0.35em] text-foreground/70" style={{ animationDelay: ".3s" }}>
             Tatuagem · Body Piercing · Itumbiara, GO
           </p>
-          <SplitText as="h1" delay={400} className="is-in mt-4 max-w-4xl font-display text-6xl md:text-8xl leading-[0.95]" parts={["101Clinic", { em: "Tattoo &" }, "Body Piercing"]} />
+          <SplitText as="h1" delay={400} className="is-in mt-4 max-w-4xl font-display text-[4rem] md:text-[6.5rem] leading-[0.95]" parts={["101Clinic", { em: "Tattoo &" }, "Body Piercing"]} />
           <p className="anim-fade-up mt-4 max-w-lg text-sm text-foreground/75 md:text-lg" style={{ animationDelay: "1.3s" }}>
             Tatuagem e colocação de piercing em Vila Vitoria, Itumbiara. Atendimento atencioso, cuidado e arte na pele.
             <span className="mt-2 block text-xs text-muted-foreground">Imagem de fundo ilustrativa.</span>
