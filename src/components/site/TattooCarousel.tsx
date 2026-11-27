@@ -391,8 +391,8 @@ export function JewelryCarousel() {
               {items.map((item, index) => (
                 <div key={item.src} role="group" aria-roledescription="slide" aria-label={`${index + 1} de ${items.length}`} className="min-w-0 flex-[0_0_86%] pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_33.333333%]">
                   <figure className="surface-premium overflow-hidden rounded-3xl p-2">
-                    <div className="overflow-hidden rounded-[1.3rem] bg-ink">
-                      <img src={item.src} alt={item.alt} width={900} height={1200} loading="lazy" draggable={false} className="aspect-[3/4] w-full select-none object-cover transition duration-700 hover:scale-[1.03]" />
+                    <div className="flex aspect-[3/4] items-center justify-center overflow-hidden rounded-[1.3rem] bg-ink p-3">
+                      <img src={item.src} alt={item.alt} width={900} height={1200} loading="lazy" draggable={false} className="max-h-full max-w-full select-none object-contain" />
                     </div>
                     <figcaption className="flex items-center justify-between px-3 py-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                       <span>{item.label}</span><span>{String(index + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}</span>
