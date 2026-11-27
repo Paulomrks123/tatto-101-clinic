@@ -9,6 +9,8 @@ import antes from "@/assets/tattoo-cobertura-antes.jpg.asset.json";
 import depois from "@/assets/tattoo-cobertura-depois.jpg.asset.json";
 import tatuando from "@/assets/tatuando-cliente.jpg.asset.json";
 import tatuador from "@/assets/tatuador-101clinic.jpg.asset.json";
+import videoAsset from "@/assets/bastidores-101clinic.mp4.asset.json";
+import videoPoster from "@/assets/bastidores-101clinic-poster.jpg.asset.json";
 import joiasArgolasLisas from "@/assets/joias-argolas-lisas.jpg.asset.json";
 import joiasMicrodermal from "@/assets/joias-microdermal.jpg.asset.json";
 import joiasArgolasZirconia from "@/assets/joias-argolas-zirconia.jpg.asset.json";
@@ -151,9 +153,9 @@ export function TattooCarousel() {
 }
 
 const VIDEO_ITEMS = [
-  { title: "Bastidores da 101Clinic", video: piercingVideo.url, poster: piercingVideoPoster.url, description: "Composição de joias na orelha, gravada no estúdio" },
-  { title: "Técnica e processo", video: undefined, poster: tatuando.url, description: "Espaço reservado para seu segundo vídeo" },
-  { title: "Arte em movimento", video: undefined, poster: tatuador.url, description: "Espaço reservado para seu terceiro vídeo" },
+  { title: "Composição na orelha", video: piercingVideo.url, poster: piercingVideoPoster.url, description: "Joias prateadas na orelha, gravadas no estúdio" },
+  { title: "Bastidores da 101Clinic", video: videoAsset.url, poster: videoPoster.url, description: "Tatuagem realista de um cão na perna, com a foto de referência ao lado" },
+  { title: "Arte em movimento", video: undefined, poster: tatuador.url, description: "Espaço reservado para seu próximo vídeo" },
 ];
 
 export function StudioVideo() {
