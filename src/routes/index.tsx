@@ -234,7 +234,7 @@ function Index() {
 
           <div className="mt-16 grid gap-8 md:grid-cols-12">
             {[
-              { n: "Tatuagem", d: "Converse sobre sua ideia, suas referências e o local do corpo para consultar as possibilidades.", img: sketch, span: "md:col-span-7", msg: "Olá! Quero criar uma tatuagem personalizada. Posso enviar minha ideia?" },
+              { n: "Tatuagem", d: "Converse sobre sua ideia, suas referências e o local do corpo para consultar as possibilidades.", img: "/__l5e/assets-v1/9ba17c46-469f-49d5-bf97-8ad647275217/tattoo-cobertura-depois.jpg", span: "md:col-span-7", msg: "Olá! Quero criar uma tatuagem personalizada. Posso enviar minha ideia?" },
               { n: "Cobertura de tatuagem", d: "Uma nova ideia para uma tatuagem antiga. Consulte a avaliação do desenho e as possibilidades de cobertura.", img: "/__l5e/assets-v1/82968a03-979e-4450-b5b4-8dfcd3cfa8f1/tatuando-cliente.jpg", span: "md:col-span-5 md:mt-28", msg: "Olá! Tenho interesse em uma cobertura de tatuagem na 101Clinic. Posso enviar uma foto?" },
             ].map((s, i) => (
               <article key={s.n} className={`reveal min-w-0 max-w-full ${s.span}`} style={{ transitionDelay: `${i * 150}ms` }}>
