@@ -153,9 +153,10 @@ export function TattooCarousel() {
 }
 
 const VIDEO_ITEMS = [
+  { title: "Trabalhos da 101Clinic", video: "/VID-20261126-WA0030.mp4", description: "Vídeo enviado pela 101Clinic" },
+  { title: "Arte em movimento", video: "/VID-20261126-WA0013.mp4", description: "Vídeo enviado pela 101Clinic" },
   { title: "Composição na orelha", video: piercingVideo.url, poster: piercingVideoPoster.url, description: "Joias prateadas na orelha, gravadas no estúdio" },
   { title: "Bastidores da 101Clinic", video: videoAsset.url, poster: videoPoster.url, description: "Tatuagem realista de um cão na perna, com a foto de referência ao lado" },
-  { title: "Arte em movimento", video: undefined, poster: tatuador.url, description: "Espaço reservado para seu próximo vídeo" },
 ];
 
 export function StudioVideo() {
