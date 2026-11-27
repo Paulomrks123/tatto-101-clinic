@@ -333,3 +333,88 @@ main[data-admin-login="true"] button[type="submit"]:hover {
   border-color: oklch(0.88 0.12 192 / 82%);
   background: linear-gradient(145deg, oklch(0.75 0.15 190 / 48%), oklch(0.52 0.14 202 / 38%));
 }
+
+
+/* 101CLINIC — acabamento cinematográfico global para fotografias e vídeos.
+   Mantém os arquivos originais e não altera rostos, desenhos ou conteúdo. */
+:root {
+  --media-cine-shadow: 0 24px 58px -30px oklch(0 0 0 / 58%);
+  --media-cine-edge: oklch(1 0 0 / 16%);
+}
+:root.light {
+  --media-cine-shadow: 0 22px 48px -30px oklch(0.24 0.04 220 / 28%);
+  --media-cine-edge: oklch(0.3 0.04 220 / 14%);
+}
+
+/* Fotografias editoriais: estúdio, serviços, trabalhos, bio, piercings e joias. */
+:where(#topo, #estudio, #servicos, #trabalhos, #piercings, #colecao-joias, #alexandre) img {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  filter: saturate(1.035) contrast(1.045) brightness(1.015);
+  transition:
+    filter 900ms var(--ease-out),
+    transform 1400ms var(--ease-cine);
+}
+:where(#estudio, #servicos, #trabalhos, #piercings, #colecao-joias, #alexandre) figure,
+:where(#estudio, #servicos, #trabalhos, #piercings, #colecao-joias, #alexandre) .surface-premium {
+  box-shadow: var(--media-cine-shadow);
+}
+:where(#estudio, #servicos, #trabalhos, #piercings, #colecao-joias, #alexandre) figure > div,
+:where(#estudio, #servicos, #trabalhos, #piercings, #colecao-joias, #alexandre) .surface-premium > div {
+  isolation: isolate;
+}
+:where(#estudio, #servicos, #trabalhos, #piercings, #colecao-joias, #alexandre) figure img:hover,
+:where(#estudio, #servicos, #trabalhos, #piercings, #colecao-joias, #alexandre) .surface-premium img:hover {
+  filter: saturate(1.09) contrast(1.06) brightness(1.025);
+  transform: scale(1.035) translateZ(0);
+}
+
+/* Moldura discreta e profundidade sem cobrir detalhes das imagens. */
+:where(#estudio, #servicos, #trabalhos, #piercings, #colecao-joias, #alexandre) figure > div,
+:where(#estudio, #servicos, #trabalhos, #piercings, #colecao-joias, #alexandre) .surface-premium > div {
+  outline: 1px solid var(--media-cine-edge);
+  outline-offset: -1px;
+}
+
+/* Vídeos: gradação leve, moldura e controles nativos preservados. */
+:where(#trabalhos, #piercings, #colecao-joias) video {
+  display: block;
+  background: #080b12;
+  filter: saturate(1.045) contrast(1.055) brightness(1.015);
+  box-shadow: var(--media-cine-shadow);
+  transition: filter 700ms ease, transform 1100ms var(--ease-cine);
+}
+:where(#trabalhos, #piercings, #colecao-joias) video:hover {
+  filter: saturate(1.09) contrast(1.07) brightness(1.025);
+}
+:where(#trabalhos, #piercings, #colecao-joias) video:focus-visible {
+  outline: 2px solid var(--neon);
+  outline-offset: 3px;
+}
+
+/* O modo claro mantém cores naturais e bordas com contraste suave. */
+:root.light :where(#topo, #estudio, #servicos, #trabalhos, #piercings, #colecao-joias, #alexandre) img {
+  filter: saturate(1.025) contrast(1.035) brightness(1.01);
+}
+:root.light :where(#trabalhos, #piercings, #colecao-joias) video {
+  filter: saturate(1.035) contrast(1.045) brightness(1.01);
+}
+
+/* Em telas pequenas, reduzir efeitos pesados e preservar fluidez. */
+@media (max-width: 767px) {
+  :where(#estudio, #servicos, #trabalhos, #piercings, #colecao-joias, #alexandre) figure,
+  :where(#estudio, #servicos, #trabalhos, #piercings, #colecao-joias, #alexandre) .surface-premium {
+    box-shadow: 0 16px 38px -28px oklch(0 0 0 / 62%);
+  }
+  :where(#estudio, #servicos, #trabalhos, #piercings, #colecao-joias, #alexandre) img,
+  :where(#trabalhos, #piercings, #colecao-joias) video {
+    transition-duration: 500ms;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :where(#topo, #estudio, #servicos, #trabalhos, #piercings, #colecao-joias, #alexandre) img,
+  :where(#trabalhos, #piercings, #colecao-joias) video {
+    transition: none !important;
+    transform: none !important;
+  }
+}
