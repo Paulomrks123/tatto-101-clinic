@@ -11,14 +11,6 @@ import tatuando from "@/assets/tatuando-cliente.jpg.asset.json";
 import tatuador from "@/assets/tatuador-101clinic.jpg.asset.json";
 import videoAsset from "@/assets/bastidores-101clinic.mp4.asset.json";
 import videoPoster from "@/assets/bastidores-101clinic-poster.jpg.asset.json";
-import joiasArgolasLisas from "@/assets/joias-argolas-lisas.jpg.asset.json";
-import joiasMicrodermal from "@/assets/joias-microdermal.jpg.asset.json";
-import joiasArgolasZirconia from "@/assets/joias-argolas-zirconia.jpg.asset.json";
-import joiasLabretes from "@/assets/joias-labretes.jpg.asset.json";
-import joiasUmbigoDourado from "@/assets/joias-umbigo-dourado.jpg.asset.json";
-import joiasMamiloCristais from "@/assets/joias-mamilo-cristais.jpg.asset.json";
-import joiasMamiloColorido from "@/assets/joias-mamilo-colorido.jpg.asset.json";
-import joiasUmbigoPrata from "@/assets/joias-umbigo-prata.jpg.asset.json";
 import piercingVideo from "@/assets/piercing-ear-curation.mp4.asset.json";
 import piercingVideoPoster from "@/assets/piercing-ear-curation-poster.jpg.asset.json";
 import piercingCoracaoOlhoGrego from "@/assets/piercing-orelha-coracao-olho-grego.jpg.asset.json";
@@ -334,16 +326,14 @@ export function JewelryCarousel() {
   const [selectedSnap, setSelectedSnap] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
   const items = [
-    { src: joiasArgolasLisas.url, alt: "Argolas de piercing lisas nas cores dourada, prateada e preta", label: "Argolas lisas" },
-    { src: joiasMicrodermal.url, alt: "Topos de microdermal prateados com pedrarias coloridas", label: "Microdermal" },
-    { src: joiasArgolasZirconia.url, alt: "Duas argolas cravejadas com zircônias, uma prateada e outra dourada", label: "Argolas cravejadas" },
-    { src: joiasLabretes.url, alt: "Labretes prateados com zircônias e topos em formatos variados", label: "Labretes" },
-    { src: joiasUmbigoDourado.url, alt: "Piercings de umbigo dourados com zircônias transparentes", label: "Umbigo dourado" },
-    { src: joiasMamiloCristais.url, alt: "Piercings de mamilo prateados com pedrarias transparentes, roxas e verdes", label: "Mamilo com cristais" },
-    { src: joiasMamiloColorido.url, alt: "Piercings de mamilo prateados e dourados com cristais e esmaltes coloridos", label: "Mamilo colorido" },
-    { src: joiasUmbigoPrata.url, alt: "Piercings de umbigo prateados com pedras incolores e azuis", label: "Umbigo prateado" },
-  ];
-  const prev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+    { type: "video", src: "/334604866_1795744920827253.mp4", alt: "Vídeo da coleção de joias para piercing", label: "Coleção em vídeo" },
+    { type: "image", src: "/3_20261127_072736_0002.png", alt: "Joia para piercing da coleção 101Clinic", label: "Joia 02" },
+    { type: "image", src: "/4_20261127_072736_0003.png", alt: "Joia para piercing da coleção 101Clinic", label: "Joia 03" },
+    { type: "image", src: "/5_20261127_072736_0004.png", alt: "Joia para piercing da coleção 101Clinic", label: "Joia 04" },
+    { type: "image", src: "/6_20261127_072736_0005.png", alt: "Joia para piercing da coleção 101Clinic", label: "Joia 05" },
+    { type: "image", src: "/7_20261127_072737_0006.png", alt: "Joia para piercing da coleção 101Clinic", label: "Joia 06" },
+    { type: "image", src: "/8_20261127_072737_0007.png", alt: "Joia para piercing da coleção 101Clinic", label: "Joia 07" },
+  ];  const prev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const next = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
   const to = useCallback((index: number) => emblaApi?.scrollTo(index), [emblaApi]);
 
@@ -381,7 +371,7 @@ export function JewelryCarousel() {
             <button type="button" onClick={next} aria-label="Ver próxima joia" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500"><ArrowRight size={20}/></button>
           </div>
         </div>
-        <div className="reveal-blur mt-12 outline-none" role="region" aria-roledescription="carrossel" aria-label="Oito imagens de joias para piercing" tabIndex={0}
+        <div className="reveal-blur mt-12 outline-none" role="region" aria-roledescription="carrossel" aria-label="Vídeo e seis imagens de joias para piercing" tabIndex={0}
           onKeyDown={(event) => {
             if (event.key === "ArrowLeft") { event.preventDefault(); prev(); }
             if (event.key === "ArrowRight") { event.preventDefault(); next(); }
@@ -392,7 +382,11 @@ export function JewelryCarousel() {
                 <div key={item.src} role="group" aria-roledescription="slide" aria-label={`${index + 1} de ${items.length}`} className="min-w-0 flex-[0_0_86%] pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_33.333333%]">
                   <figure className="surface-premium overflow-hidden rounded-3xl p-2">
                     <div className="flex aspect-[3/4] items-center justify-center overflow-hidden rounded-[1.3rem] bg-ink p-3">
-                      <img src={item.src} alt={item.alt} width={900} height={1200} loading="lazy" draggable={false} className="max-h-full max-w-full select-none object-contain" />
+                      {item.type === "video" ? (
+                        <video src={item.src} controls muted loop playsInline preload="metadata" className="h-full max-h-full w-full object-contain" aria-label={item.alt} />
+                      ) : (
+                        <img src={item.src} alt={item.alt} width={900} height={1200} loading="lazy" draggable={false} className="max-h-full max-w-full select-none object-contain" />
+                      )}
                     </div>
                     <figcaption className="flex items-center justify-between px-3 py-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                       <span>{item.label}</span><span>{String(index + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}</span>
