@@ -396,7 +396,7 @@ function Index() {
             ["Vocês fazem cobertura de tatuagem?", "Uma avaliação compartilhada no Google destaca um trabalho de cobertura. Envie uma foto e consulte as possibilidades para sua tatuagem."],
             ["Vocês colocam piercing?", "Sim. A 101Clinic é um estúdio de tatuagem e colocação de piercing. Consulte as opções de perfuração e joias pelo WhatsApp."],
             ["Preciso agendar?", "Recomendamos combinar antes pelo WhatsApp para garantir o horário e preparar o desenho."],
-            ["Qual o horário de funcionamento?", "O Google informa abertura na quinta-feira às 08:00. Consulte os demais dias e horários pelo telefone (62) 98578-6775."],
+            ["Qual o horário de funcionamento?", "O horário de funcionamento da 101Clinic é das 08:00 às 19:00."],
           ].map(([q, a], i) => (
             <details key={q} className="reveal surface-premium group rounded-2xl px-6 py-5 open:shadow-glow" style={{ transitionDelay: `${i * 60}ms` }}>
               <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-semibold">
