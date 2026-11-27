@@ -132,7 +132,7 @@ function Index() {
         {/* 1. vídeo original do bonequinho dançando — fundo da hero */}
         <div data-parallax="0.45" data-mouse="-12" className="absolute inset-0 will-change-transform">
           <video
-            src="/526144667_1795741581803901.mp4"
+            src="/334604866_1795744920827253.mp4"
             autoPlay
             muted
             loop
