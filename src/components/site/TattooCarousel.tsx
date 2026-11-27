@@ -326,7 +326,6 @@ export function JewelryCarousel() {
   const [selectedSnap, setSelectedSnap] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
   const items = [
-    { type: "video", src: "/334604866_1795744920827253.mp4", alt: "Vídeo da coleção de joias para piercing", label: "Coleção em vídeo" },
     { type: "image", src: "/3_20261127_072736_0002.png", alt: "Joia para piercing da coleção 101Clinic", label: "Joia 02" },
     { type: "image", src: "/4_20261127_072736_0003.png", alt: "Joia para piercing da coleção 101Clinic", label: "Joia 03" },
     { type: "image", src: "/5_20261127_072736_0004.png", alt: "Joia para piercing da coleção 101Clinic", label: "Joia 04" },
@@ -371,7 +370,7 @@ export function JewelryCarousel() {
             <button type="button" onClick={next} aria-label="Ver próxima joia" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500"><ArrowRight size={20}/></button>
           </div>
         </div>
-        <div className="reveal-blur mt-12 outline-none" role="region" aria-roledescription="carrossel" aria-label="Vídeo e seis imagens de joias para piercing" tabIndex={0}
+        <div className="reveal-blur mt-12 outline-none" role="region" aria-roledescription="carrossel" aria-label="Seis imagens de joias para piercing" tabIndex={0}
           onKeyDown={(event) => {
             if (event.key === "ArrowLeft") { event.preventDefault(); prev(); }
             if (event.key === "ArrowRight") { event.preventDefault(); next(); }
