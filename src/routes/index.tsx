@@ -240,10 +240,9 @@ function Index() {
               <article key={s.n} className={`reveal min-w-0 max-w-full ${s.span}`} style={{ transitionDelay: `${i * 150}ms` }}>
                 <div className="tilt surface-premium group relative overflow-hidden rounded-3xl p-2">
                   <div className="overflow-hidden rounded-[1.3rem]">
-                    <img src={s.img} alt={`${s.n} (imagem ilustrativa)`} width={800} height={1008} loading="lazy" className="aspect-[4/5] w-full object-cover transition duration-[1400ms] group-hover:scale-110 md:aspect-[5/4]" />
+                    <img src={s.img} alt={`${s.n}`} width={800} height={1008} loading="lazy" className="aspect-[4/5] w-full object-cover transition duration-[1400ms] group-hover:scale-110 md:aspect-[5/4]" />
                   </div>
                   <span className="tilt-glare" />
-                  <span className="glass absolute left-5 top-5 rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-widest">Imagem ilustrativa</span>
                   <div className="flex items-start justify-between gap-6 p-5">
                     <div>
                       <h3 className="font-display text-3xl md:text-4xl">{s.n}</h3>
