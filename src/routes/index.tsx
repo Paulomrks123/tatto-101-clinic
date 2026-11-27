@@ -129,6 +129,19 @@ function Index() {
 
       {/* HERO — 5 planos de parallax */}
       <section id="topo" className="grain relative min-h-[94svh] overflow-hidden">
+        {/* 1. vídeo original do bonequinho dançando — fundo da hero */}
+        <div data-parallax="0.45" data-mouse="-12" className="absolute inset-0 will-change-transform">
+          <video
+            src="/GIF%20de%20pmarqsdf.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+            className="h-full w-full -translate-y-32 scale-[1.4] object-contain opacity-50"
+          />
+        </div>
         {/* 2. luz */}
         <div data-parallax="0.25" data-mouse="18" className="pointer-events-none absolute -inset-[20%] will-change-transform">
           <div className="aurora h-full w-full opacity-80" />
