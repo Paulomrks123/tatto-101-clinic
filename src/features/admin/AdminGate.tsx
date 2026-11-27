@@ -74,7 +74,7 @@ export function AdminGate() {
         <div className="mb-8 text-center">
           <p className="text-xs font-semibold uppercase tracking-[.32em] text-white/75">101Clinic</p>
           <h1 className="mt-3 text-2xl font-semibold tracking-tight">Área administrativa</h1>
-          <p className="mt-3 rounded-lg border border-amber-200/30 bg-amber-950/40 px-3 py-2 text-left text-xs leading-5 text-amber-100">Acesso demonstrativo: a senha fica somente neste navegador e não oferece proteção real. Não utilize para guardar dados pessoais ou informações de saúde.</p>
+          <p className="mt-3 rounded-lg border border-amber-200/30 bg-amber-950/40 px-3 py-2 text-left text-xs leading-5 text-amber-100">Primeiro acesso: informe este e-mail e crie uma senha com pelo menos 8 caracteres. Nos próximos acessos, use a mesma senha neste navegador. A senha fica salva somente neste aparelho e este bloqueio não oferece proteção real. Não utilize para guardar dados pessoais ou informações de saúde.</p>
         </div>
 
         <form onSubmit={submit} className="space-y-4">
