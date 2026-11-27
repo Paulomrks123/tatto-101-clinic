@@ -35,6 +35,16 @@ const TATTOOS = [
   { image: depois, alt: "Cobertura colorida com rosa e borboletas na coxa — foto de depois", tag: "Depois" },
   { image: tatuando, alt: "Tatuador aplicando uma tatuagem no braço de um cliente no estúdio", tag: "No estúdio" },
   { image: tatuador, alt: "Tatuador da 101Clinic com máquina de tatuagem sem fio e luvas", tag: "Bastidores" },
+  { image: { url: "/IMG-20261126-WA0007.jpg" }, alt: "Trabalho de tatuagem da 101Clinic — IMG-20261126-WA0007", tag: "Portfólio" },
+  { image: { url: "/IMG-20261126-WA0006.jpg" }, alt: "Trabalho de tatuagem da 101Clinic — IMG-20261126-WA0006", tag: "Portfólio" },
+  { image: { url: "/IMG-20261126-WA0005.jpg" }, alt: "Trabalho de tatuagem da 101Clinic — IMG-20261126-WA0005", tag: "Portfólio" },
+  { image: { url: "/IMG-20261126-WA0003.jpg" }, alt: "Trabalho de tatuagem da 101Clinic — IMG-20261126-WA0003", tag: "Portfólio" },
+  { image: { url: "/IMG-20261126-WA0004.jpg" }, alt: "Trabalho de tatuagem da 101Clinic — IMG-20261126-WA0004", tag: "Portfólio" },
+  { image: { url: "/IMG-20261126-WA0002.jpg" }, alt: "Trabalho de tatuagem da 101Clinic — IMG-20261126-WA0002", tag: "Portfólio" },
+  { image: { url: "/IMG-20261125-WA0072.jpg" }, alt: "Trabalho de tatuagem da 101Clinic — IMG-20261125-WA0072", tag: "Portfólio" },
+  { image: { url: "/IMG-20261125-WA0068.jpg" }, alt: "Trabalho de tatuagem da 101Clinic — IMG-20261125-WA0068", tag: "Portfólio" },
+  { image: { url: "/IMG-20261125-WA0066.jpg" }, alt: "Trabalho de tatuagem da 101Clinic — IMG-20261125-WA0066", tag: "Portfólio" },
+  { image: { url: "/IMG-20261125-WA0067.jpg" }, alt: "Trabalho de tatuagem da 101Clinic — IMG-20261125-WA0067", tag: "Portfólio" },
 ];
 
 export function TattooCarousel() {
