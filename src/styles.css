@@ -436,7 +436,7 @@ main[data-admin-login="true"] button[type="submit"]:hover {
 
 
 /* 101CLINIC — contorno azul-turquesa reforçado nos cards de mídia e carrosséis. */
-:where(#trabalhos, #video, #piercings, #colecao-joias) .surface-premium {
+:root.light :where(#trabalhos, #video, #piercings, #colecao-joias) .surface-premium {
   border: 1.5px solid oklch(0.76 0.14 190 / 58%);
   box-shadow:
     0 20px 48px -28px oklch(0.62 0.14 192 / 30%),
@@ -444,7 +444,7 @@ main[data-admin-login="true"] button[type="submit"]:hover {
     0 0 24px -16px oklch(0.72 0.15 190 / 42%),
     inset 0 1px 0 oklch(0.9 0.08 190 / 20%);
 }
-:where(#trabalhos, #video, #piercings, #colecao-joias) .surface-premium:hover {
+:root.light :where(#trabalhos, #video, #piercings, #colecao-joias) .surface-premium:hover {
   border-color: oklch(0.82 0.16 190 / 82%);
   box-shadow:
     0 24px 54px -28px oklch(0.62 0.14 192 / 38%),
@@ -453,25 +453,25 @@ main[data-admin-login="true"] button[type="submit"]:hover {
     inset 0 1px 0 oklch(0.94 0.08 190 / 26%);
 }
 :root.light :where(#trabalhos, #video, #piercings, #colecao-joias) .surface-premium {
-  border-color: oklch(0.62 0.13 192 / 48%);
+  border-color: oklch(0.52 0.15 192 / 67%);
   box-shadow:
     0 18px 42px -28px oklch(0.48 0.12 192 / 28%),
-    0 0 0 1px oklch(0.68 0.12 192 / 16%),
-    0 0 20px -15px oklch(0.65 0.14 190 / 30%),
+    0 0 0 1px oklch(0.58 0.14 192 / 23%),
+    0 0 24px -15px oklch(0.55 0.15 190 / 42%),
     inset 0 1px 0 oklch(1 0 0 / 94%);
 }
 :root.light :where(#trabalhos, #video, #piercings, #colecao-joias) .surface-premium:hover {
-  border-color: oklch(0.54 0.14 192 / 72%);
+  border-color: oklch(0.45 0.16 192 / 90%);
   box-shadow:
     0 22px 48px -28px oklch(0.48 0.12 192 / 34%),
-    0 0 0 1px oklch(0.62 0.13 192 / 24%),
-    0 0 28px -14px oklch(0.65 0.14 190 / 42%),
+    0 0 0 1px oklch(0.52 0.15 192 / 34%),
+    0 0 32px -14px oklch(0.55 0.16 190 / 59%),
     inset 0 1px 0 oklch(1 0 0 / 96%);
 }
 
 
 /* Contorno turquesa reforçado nos três cards de informações acima da biografia. */
-#alexandre .surface-premium {
+:root.light #alexandre .surface-premium {
   border: 1.5px solid oklch(0.76 0.14 190 / 58%);
   box-shadow:
     0 18px 42px -28px oklch(0.62 0.14 192 / 30%),
@@ -479,7 +479,7 @@ main[data-admin-login="true"] button[type="submit"]:hover {
     0 0 22px -15px oklch(0.72 0.15 190 / 40%),
     inset 0 1px 0 oklch(0.9 0.08 190 / 20%);
 }
-#alexandre .surface-premium:hover {
+:root.light #alexandre .surface-premium:hover {
   border-color: oklch(0.82 0.16 190 / 82%);
   box-shadow:
     0 22px 48px -28px oklch(0.62 0.14 192 / 38%),
@@ -488,18 +488,18 @@ main[data-admin-login="true"] button[type="submit"]:hover {
     inset 0 1px 0 oklch(0.94 0.08 190 / 26%);
 }
 :root.light #alexandre .surface-premium {
-  border-color: oklch(0.62 0.13 192 / 48%);
+  border-color: oklch(0.52 0.15 192 / 67%);
   box-shadow:
     0 16px 38px -26px oklch(0.48 0.12 192 / 28%),
-    0 0 0 1px oklch(0.68 0.12 192 / 16%),
-    0 0 18px -14px oklch(0.65 0.14 190 / 30%),
+    0 0 0 1px oklch(0.58 0.14 192 / 23%),
+    0 0 22px -14px oklch(0.55 0.15 190 / 42%),
     inset 0 1px 0 oklch(1 0 0 / 94%);
 }
 :root.light #alexandre .surface-premium:hover {
-  border-color: oklch(0.54 0.14 192 / 72%);
+  border-color: oklch(0.45 0.16 192 / 90%);
   box-shadow:
     0 20px 44px -26px oklch(0.48 0.12 192 / 34%),
-    0 0 0 1px oklch(0.62 0.13 192 / 24%),
-    0 0 26px -14px oklch(0.65 0.14 190 / 42%),
+    0 0 0 1px oklch(0.52 0.15 192 / 34%),
+    0 0 30px -14px oklch(0.55 0.16 190 / 59%),
     inset 0 1px 0 oklch(1 0 0 / 96%);
 }
