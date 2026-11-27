@@ -5,7 +5,7 @@ export const BIZ = {
   waDisplay: "(62) 98578-6775",
   waNumber: "5562985786775",
   address: "R. V 8, 4 - Vila Vitoria, Itumbiara - GO, 75533-550",
-  hours: "Quinta-feira: abertura às 08:00. Consulte os demais horários pelo telefone.",
+  hours: "Horário de funcionamento: 08:00 às 19:00.",
   rating: "4,9",
   reviews: 89,
   site: "https://tatto-101-clinic.lovable.app",
