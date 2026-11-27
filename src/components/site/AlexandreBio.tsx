@@ -1,7 +1,6 @@
 import { ArrowUpRight, Award } from "lucide-react";
 import { waLink } from "@/components/site/data";
 import { Ampersand } from "@/components/site/SplitText";
-import floral from "@/assets/tattoo-floral-ombro.jpg.asset.json";
 
 const tattooSpecialties = [
   "Tatuagem Realista Animal e Humana",
@@ -46,7 +45,7 @@ export function AlexandreBio() {
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-5 md:grid-cols-12 md:px-10">
         <figure className="reveal-blur md:col-span-5">
           <div className="surface-premium mb-4 overflow-hidden rounded-3xl p-2">
-            <img src={floral.url} alt="Tatuagem floral em preto e cinza no ombro de uma cliente — foto do primeiro carrossel" width={900} height={1200} loading="lazy" className="aspect-[4/5] w-full rounded-[1.3rem] object-cover" />
+            <img src="/IMG-20261125-WA0064.jpg" alt="Imagem da 101Clinic acima da foto de Alexandre Coelho" width={900} height={1200} loading="lazy" className="aspect-[4/5] w-full rounded-[1.3rem] object-cover" />
           </div>
           <div className="surface-premium overflow-hidden rounded-3xl p-2">
             <img src="/IMG-20261125-WA0063.jpg" alt="Alexandre Coelho na 101Clinic Tattoo & Body Piercing" width={900} height={1100} loading="lazy" className="aspect-[4/5] w-full rounded-[1.3rem] object-cover" />
