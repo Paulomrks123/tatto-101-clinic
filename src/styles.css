@@ -418,3 +418,18 @@ main[data-admin-login="true"] button[type="submit"]:hover {
     transform: none !important;
   }
 }
+
+
+/* Tratamento específico da seção de vídeos. */
+#video video {
+  display: block;
+  background: #080b12;
+  filter: saturate(1.045) contrast(1.055) brightness(1.015);
+  box-shadow: var(--media-cine-shadow);
+  transition: filter 700ms ease, transform 1100ms var(--ease-cine);
+}
+#video video:hover { filter: saturate(1.09) contrast(1.07) brightness(1.025); }
+#video video:focus-visible { outline: 2px solid var(--neon); outline-offset: 3px; }
+:root.light #video video { filter: saturate(1.035) contrast(1.045) brightness(1.01); }
+@media (max-width: 767px) { #video video { transition-duration: 500ms; } }
+@media (prefers-reduced-motion: reduce) { #video video { transition: none !important; transform: none !important; } }
