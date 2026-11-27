@@ -8,19 +8,21 @@ afterEach(() => {
   document.documentElement.classList.remove("light", "dark");
 });
 
-it("alterna os modos e salva a preferência", () => {
+it("abre no modo claro e salva a preferência ao alternar", () => {
   render(<ThemeToggle />);
-  fireEvent.click(screen.getByRole("button", { name: "Ativar modo claro" }));
-  expect(document.documentElement.classList.contains("light")).toBe(true);
-  expect(localStorage.getItem("clinic-theme")).toBe("light");
+  // Sem escolha salva, o site abre no modo claro.
+  expect(screen.getByRole("button", { name: "Ativar modo escuro" })).toBeDefined();
   fireEvent.click(screen.getByRole("button", { name: "Ativar modo escuro" }));
   expect(document.documentElement.classList.contains("dark")).toBe(true);
-  expect(localStorage.getItem("clinic-theme")).toBe("dark");
+  expect(localStorage.getItem("clinic-theme-v2")).toBe("dark");
+  fireEvent.click(screen.getByRole("button", { name: "Ativar modo claro" }));
+  expect(document.documentElement.classList.contains("light")).toBe(true);
+  expect(localStorage.getItem("clinic-theme-v2")).toBe("light");
 });
 
-it("restaura o modo claro salvo", () => {
-  localStorage.setItem("clinic-theme", "light");
+it("restaura o modo escuro salvo", () => {
+  localStorage.setItem("clinic-theme-v2", "dark");
   render(<ThemeToggle />);
-  expect(document.documentElement.classList.contains("light")).toBe(true);
-  expect(screen.getByRole("button", { name: "Ativar modo escuro" })).toBeDefined();
+  expect(document.documentElement.classList.contains("dark")).toBe(true);
+  expect(screen.getByRole("button", { name: "Ativar modo claro" })).toBeDefined();
 });

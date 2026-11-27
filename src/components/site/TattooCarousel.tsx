@@ -11,6 +11,14 @@ import tatuando from "@/assets/tatuando-cliente.jpg.asset.json";
 import tatuador from "@/assets/tatuador-101clinic.jpg.asset.json";
 import videoAsset from "@/assets/bastidores-101clinic.mp4.asset.json";
 import videoPoster from "@/assets/bastidores-101clinic-poster.jpg.asset.json";
+import joiasArgolasLisas from "@/assets/joias-argolas-lisas.jpg.asset.json";
+import joiasMicrodermal from "@/assets/joias-microdermal.jpg.asset.json";
+import joiasArgolasZirconia from "@/assets/joias-argolas-zirconia.jpg.asset.json";
+import joiasLabretes from "@/assets/joias-labretes.jpg.asset.json";
+import joiasUmbigoDourado from "@/assets/joias-umbigo-dourado.jpg.asset.json";
+import joiasMamiloCristais from "@/assets/joias-mamilo-cristais.jpg.asset.json";
+import joiasMamiloColorido from "@/assets/joias-mamilo-colorido.jpg.asset.json";
+import joiasUmbigoPrata from "@/assets/joias-umbigo-prata.jpg.asset.json";
 
 const TATTOOS = [
   { image: hawa, alt: "Tatuagem realista de um cão na panturrilha, com o nome Hawa abaixo", tag: "Retrato realista" },
@@ -304,12 +312,14 @@ export function JewelryCarousel() {
   const [selectedSnap, setSelectedSnap] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
   const items = [
-    { src: "/IMG-20261126-WA0033.jpg", alt: "Joia de piercing da coleção 101Clinic", label: "Joias para piercing" },
-    { src: "/IMG-20261126-WA0034.jpg", alt: "Modelo de joia para piercing da coleção 101Clinic", label: "Detalhes da coleção" },
-    { src: "/IMG-20261126-WA0035.jpg", alt: "Peça de piercing selecionada pela 101Clinic", label: "Estilo e personalidade" },
-    { src: "/IMG-20261126-WA0038.jpg", alt: "Joia e aplicação de piercing da 101Clinic", label: "Piercing" },
-    { src: "/IMG-20261126-WA0039.jpg", alt: "Inspiração de piercing da coleção 101Clinic", label: "Inspiração" },
-    { src: "/IMG-20261126-WA0045.jpg", alt: "Detalhe de piercing da 101Clinic", label: "Seu próximo detalhe" },
+    { src: joiasArgolasLisas.url, alt: "Argolas de piercing lisas nas cores dourada, prateada e preta", label: "Argolas lisas" },
+    { src: joiasMicrodermal.url, alt: "Topos de microdermal prateados com pedrarias coloridas", label: "Microdermal" },
+    { src: joiasArgolasZirconia.url, alt: "Duas argolas cravejadas com zircônias, uma prateada e outra dourada", label: "Argolas cravejadas" },
+    { src: joiasLabretes.url, alt: "Labretes prateados com zircônias e topos em formatos variados", label: "Labretes" },
+    { src: joiasUmbigoDourado.url, alt: "Piercings de umbigo dourados com zircônias transparentes", label: "Umbigo dourado" },
+    { src: joiasMamiloCristais.url, alt: "Piercings de mamilo prateados com pedrarias transparentes, roxas e verdes", label: "Mamilo com cristais" },
+    { src: joiasMamiloColorido.url, alt: "Piercings de mamilo prateados e dourados com cristais e esmaltes coloridos", label: "Mamilo colorido" },
+    { src: joiasUmbigoPrata.url, alt: "Piercings de umbigo prateados com pedras incolores e azuis", label: "Umbigo prateado" },
   ];
   const prev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const next = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -335,7 +345,7 @@ export function JewelryCarousel() {
   }, [emblaApi]);
 
   return (
-    <section id="colecao-joias" aria-label="Conheça alguns joias da nossa coleção" className="relative overflow-hidden py-24 md:py-32">
+    <section id="colecao-joias" aria-label="Conheça algumas joias da nossa coleção" className="relative overflow-hidden py-24 md:py-32">
       <div className="pointer-events-none absolute -right-40 top-10 h-[460px] w-[460px] rounded-full bg-cobalt/20 blur-[120px]" />
       <div className="relative mx-auto max-w-7xl px-5 md:px-10">
         <div className="flex flex-col justify-between gap-7 md:flex-row md:items-end">
@@ -349,7 +359,7 @@ export function JewelryCarousel() {
             <button type="button" onClick={next} aria-label="Ver próxima joia" className="flex h-12 w-12 items-center justify-center rounded-xl border !border-zinc-700 !bg-zinc-800 !text-white shadow-sm transition-colors hover:!bg-zinc-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500"><ArrowRight size={20}/></button>
           </div>
         </div>
-        <div className="reveal-blur mt-12 outline-none" role="region" aria-roledescription="carrossel" aria-label="Seis imagens de joias para piercing" tabIndex={0}
+        <div className="reveal-blur mt-12 outline-none" role="region" aria-roledescription="carrossel" aria-label="Oito imagens de joias para piercing" tabIndex={0}
           onKeyDown={(event) => {
             if (event.key === "ArrowLeft") { event.preventDefault(); prev(); }
             if (event.key === "ArrowRight") { event.preventDefault(); next(); }
@@ -363,7 +373,7 @@ export function JewelryCarousel() {
                       <img src={item.src} alt={item.alt} width={900} height={1200} loading="lazy" draggable={false} className="aspect-[3/4] w-full select-none object-cover transition duration-700 hover:scale-[1.03]" />
                     </div>
                     <figcaption className="flex items-center justify-between px-3 py-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                      <span>{item.label}</span><span>{String(index + 1).padStart(2, "0")} / 06</span>
+                      <span>{item.label}</span><span>{String(index + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}</span>
                     </figcaption>
                   </figure>
                 </div>

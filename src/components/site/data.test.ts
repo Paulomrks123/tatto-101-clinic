@@ -9,7 +9,7 @@ describe("Dados da 101Clinic", () => {
     expect(link.searchParams.get("text")).toContain("101Clinic");
   });
   it("direciona para a localização fornecida", () => {
-    expect(BIZ.maps).toBe("https://maps.app.goo.gl/YAmgbQK6KhiUiG4x8");
+    expect(BIZ.maps).toBe("https://maps.app.goo.gl/V8EnKn6GNEcj2zBeA");
     expect(BIZ.address).toBe("R. V 8, 4 - Vila Vitoria, Itumbiara - GO, 75533-550");
     expect(new URL(BIZ.mapEmbed).searchParams.get("q")).toContain("Itumbiara");
   });

@@ -199,7 +199,6 @@ function Index() {
               ))}
             </dl>
           </div>
-          </div>
         </div>
       </section>
 
