@@ -9,8 +9,6 @@ import antes from "@/assets/tattoo-cobertura-antes.jpg.asset.json";
 import depois from "@/assets/tattoo-cobertura-depois.jpg.asset.json";
 import tatuando from "@/assets/tatuando-cliente.jpg.asset.json";
 import tatuador from "@/assets/tatuador-101clinic.jpg.asset.json";
-import videoAsset from "@/assets/bastidores-101clinic.mp4.asset.json";
-import videoPoster from "@/assets/bastidores-101clinic-poster.jpg.asset.json";
 import joiasArgolasLisas from "@/assets/joias-argolas-lisas.jpg.asset.json";
 import joiasMicrodermal from "@/assets/joias-microdermal.jpg.asset.json";
 import joiasArgolasZirconia from "@/assets/joias-argolas-zirconia.jpg.asset.json";
@@ -19,6 +17,14 @@ import joiasUmbigoDourado from "@/assets/joias-umbigo-dourado.jpg.asset.json";
 import joiasMamiloCristais from "@/assets/joias-mamilo-cristais.jpg.asset.json";
 import joiasMamiloColorido from "@/assets/joias-mamilo-colorido.jpg.asset.json";
 import joiasUmbigoPrata from "@/assets/joias-umbigo-prata.jpg.asset.json";
+import piercingVideo from "@/assets/piercing-ear-curation.mp4.asset.json";
+import piercingVideoPoster from "@/assets/piercing-ear-curation-poster.jpg.asset.json";
+import piercingCoracaoOlhoGrego from "@/assets/piercing-orelha-coracao-olho-grego.jpg.asset.json";
+import piercingUmbigoCristais from "@/assets/piercing-umbigo-cristais.jpg.asset.json";
+import piercingOrelhaComposicao from "@/assets/piercing-orelha-composicao-dourada.jpg.asset.json";
+import piercingTragusBorboleta from "@/assets/piercing-tragus-borboleta.jpg.asset.json";
+import piercingOrelhaFlor from "@/assets/piercing-orelha-flor-dourada.jpg.asset.json";
+import piercingOrelhaRamo from "@/assets/piercing-orelha-ramo-e-coracao.jpg.asset.json";
 
 const TATTOOS = [
   { image: hawa, alt: "Tatuagem realista de um cão na panturrilha, com o nome Hawa abaixo", tag: "Retrato realista" },
@@ -145,7 +151,7 @@ export function TattooCarousel() {
 }
 
 const VIDEO_ITEMS = [
-  { title: "Bastidores da 101Clinic", video: videoAsset.url, poster: videoPoster.url, description: "Vídeo atual do estúdio" },
+  { title: "Bastidores da 101Clinic", video: piercingVideo.url, poster: piercingVideoPoster.url, description: "Composição de joias na orelha, gravada no estúdio" },
   { title: "Técnica e processo", video: undefined, poster: tatuando.url, description: "Espaço reservado para seu segundo vídeo" },
   { title: "Arte em movimento", video: undefined, poster: tatuador.url, description: "Espaço reservado para seu terceiro vídeo" },
 ];
@@ -218,11 +224,12 @@ export function PiercingCarousel() {
   const [selectedSnap, setSelectedSnap] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
   const items = [
-    { src: "/IMG-20261126-WA0050.jpg", alt: "Foto real de trabalho de piercing da 101Clinic" },
-    { src: "/IMG-20261126-WA0046.jpg", alt: "Registro de piercing realizado na 101Clinic" },
-    { src: "/IMG-20261126-WA0045.jpg", alt: "Foto de portfólio de piercing da 101Clinic" },
-    { src: "/IMG-20261126-WA0039.jpg", alt: "Trabalho de body piercing realizado na 101Clinic" },
-    { src: "/IMG-20261126-WA0038.jpg", alt: "Registro de body piercing do estúdio 101Clinic" },
+    { src: piercingCoracaoOlhoGrego.url, alt: "Orelha com piercing daith em coração cravejado, argolas de zircônia na hélix e brinco de olho grego no lóbulo" },
+    { src: piercingUmbigoCristais.url, alt: "Piercing de umbigo prateado com duas esferas cravejadas de zircônia" },
+    { src: piercingOrelhaComposicao.url, alt: "Composição de piercings dourados na orelha: tragus, daith em coração, conch, cluster de pedras e brinco de flor cravejado" },
+    { src: piercingTragusBorboleta.url, alt: "Piercing de tragus em formato de borboleta com cristais e brinco quadrado cravejado no lóbulo" },
+    { src: piercingOrelhaFlor.url, alt: "Piercing de hélix em formato de flor cravejada, com argolas no lóbulo e argola microcravada no tragus" },
+    { src: piercingOrelhaRamo.url, alt: "Composição de piercings dourados: ramo de folhas cravejado na cartilagem, três pontos de luz na hélix e daith em coração" },
   ];
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
@@ -269,7 +276,7 @@ export function PiercingCarousel() {
           className="reveal-blur mt-12 outline-none"
           role="region"
           aria-roledescription="carrossel"
-          aria-label="Cinco fotos de trabalhos de piercing"
+          aria-label="Seis fotos de trabalhos de piercing"
           tabIndex={0}
           onKeyDown={(event) => {
             if (event.key === "ArrowLeft") { event.preventDefault(); scrollPrev(); }

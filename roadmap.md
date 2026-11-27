@@ -5,4 +5,4 @@
 - [x] Verificar contatos e página em celular e computador; mapa ao vivo precisa de validação no site publicado.
 - [x] Substituir as fotos do carrossel de joias pelas 8 imagens enviadas e conferir na tela.
 - [ ] Instagram: aguardando o @ ou link do usuário.
-- [ ] Horários completos: aguardando os dias e horários do usuário.
+- [ ] Horários completos: aguardando os dias e horários do usuário.- [x] Adicionar as 6 fotos de piercing ao carrossel de piercings e trocar o vídeo de bastidores.
