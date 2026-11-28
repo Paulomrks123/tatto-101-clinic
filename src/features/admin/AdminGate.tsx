@@ -17,7 +17,6 @@ export function AdminGate() {
   const [registered, setRegistered] = useState(false);
   const [unlocked, setUnlocked] = useState(false);
   const [ready, setReady] = useState(false);
-  const [email, setEmail] = useState(ADMIN_EMAIL);
   const [secret, setSecret] = useState("");
   const [confirm, setConfirm] = useState("");
   const [error, setError] = useState("");
@@ -36,10 +35,6 @@ export function AdminGate() {
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
-    if (email.trim().toLowerCase() !== ADMIN_EMAIL) {
-      setError("E-mail administrativo incorreto.");
-      return;
-    }
     if (secret.length < 8) {
       setError("Use uma senha com pelo menos 8 caracteres.");
       return;
@@ -91,24 +86,15 @@ export function AdminGate() {
           </h1>
           <p className="mt-3 rounded-lg border border-amber-200/30 bg-amber-950/40 px-3 py-2 text-left text-xs leading-5 text-amber-100">
             {creatingAccount
-              ? "Este aparelho ainda não está cadastrado. Informe o e-mail administrativo e crie uma senha com pelo menos 8 caracteres. A conta fica salva somente neste aparelho e este bloqueio não oferece proteção real. Não utilize para guardar dados pessoais ou informações de saúde."
-              : "Este aparelho já está cadastrado. Use a senha criada nele. A senha fica salva somente neste aparelho e este bloqueio não oferece proteção real. Não utilize para guardar dados pessoais ou informações de saúde."}
+              ? "Este aparelho ainda não está cadastrado. O e-mail administrativo é 101clinic@gmail.com. Crie uma senha com pelo menos 8 caracteres. A senha fica salva somente neste aparelho; em outro aparelho, será necessário criar uma senha local também. Este bloqueio não oferece proteção real. Não utilize para guardar dados pessoais ou informações de saúde."
+              : "Este aparelho já está cadastrado. Use a senha criada neste aparelho. O e-mail administrativo é 101clinic@gmail.com. Este bloqueio é local e não oferece proteção real. Não utilize para guardar dados pessoais ou informações de saúde."}
           </p>
         </div>
 
         <form onSubmit={submit} className="space-y-4">
-          <label className="block">
-            <span className="mb-2 block text-xs font-medium text-white/80">E-mail</span>
-            <input
-              autoComplete="username"
-              type="email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              placeholder="Seu e-mail"
-              className="w-full rounded-xl border border-white/25 bg-black/25 px-4 py-3.5 text-sm text-white outline-none backdrop-blur-xl transition placeholder:text-white/45 focus:border-white/65 focus:bg-black/35"
-              required
-            />
-          </label>
+          <div className="rounded-xl border border-white/20 bg-black/20 px-4 py-3 text-sm text-white/80">
+            E-mail administrativo: <span className="font-semibold text-white">{ADMIN_EMAIL}</span>
+          </div>
 
           <label className="block">
             <span className="mb-2 block text-xs font-medium text-white/80">Senha</span>
@@ -153,8 +139,8 @@ export function AdminGate() {
 
           <p className="text-center text-xs text-white/55">
             {creatingAccount
-              ? "Ao criar a conta, ela vale apenas para este aparelho."
-              : "Este aparelho já tem conta cadastrada."}
+              ? "A senha será salva somente neste aparelho. Em outro aparelho, crie uma nova senha."
+              : "A senha deste aparelho já está cadastrada."}
           </p>
         </form>
       </section>
