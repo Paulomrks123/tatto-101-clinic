@@ -426,7 +426,7 @@ function Index() {
                 playsInline
                 preload="metadata"
                 aria-hidden="true"
-                className="h-full w-full object-contain"
+                className="h-full w-full object-contain mix-blend-multiply"
               />
             </div>
             <SplitText className="mt-6 font-display text-6xl leading-[0.9] md:text-8xl" parts={["Tem uma ideia?", { em: "Vamos desenhar." }]} />
