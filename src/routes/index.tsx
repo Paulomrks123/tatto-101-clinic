@@ -417,17 +417,23 @@ function Index() {
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-5 py-28 md:px-10 md:py-36">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mx-auto flex h-[21rem] w-[30rem] max-w-full items-center justify-center overflow-hidden" aria-label="Animação da 101Clinic">
-              <video
-                src="/497738465_1795781115714229.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-hidden="true"
-                className="h-full w-full object-contain opacity-50"
-              />
+            <div className="grain relative mx-auto h-[21rem] w-[30rem] max-w-full overflow-hidden" aria-label="Animação da 101Clinic">
+              <div className="absolute inset-0">
+                <video
+                  src="/497738465_1795781115714229.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  aria-hidden="true"
+                  className="h-full w-full object-contain opacity-50"
+                />
+              </div>
+              <div className="pointer-events-none absolute inset-0">
+                <div className="aurora h-full w-full opacity-80" />
+              </div>
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/30 to-ink" />
             </div>
             <SplitText className="mt-6 font-display text-6xl leading-[0.9] md:text-8xl" parts={["Tem uma ideia?", { em: "Vamos desenhar." }]} />
             <p className="reveal mt-6 text-lg text-foreground/75">Conte o que você imagina. A gente responde com caminhos, valores e horários.</p>
