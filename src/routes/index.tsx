@@ -417,7 +417,18 @@ function Index() {
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-5 py-28 md:px-10 md:py-36">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mx-auto w-40 text-neon"><StudioMark /></div>
+            <div className="mx-auto flex h-28 w-40 items-center justify-center overflow-hidden" aria-label="Animação da 101Clinic">
+              <video
+                src="/497738465_1795781115714229.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
+                className="h-full w-full object-contain"
+              />
+            </div>
             <SplitText className="mt-6 font-display text-6xl leading-[0.9] md:text-8xl" parts={["Tem uma ideia?", { em: "Vamos desenhar." }]} />
             <p className="reveal mt-6 text-lg text-foreground/75">Conte o que você imagina. A gente responde com caminhos, valores e horários.</p>
             <a href={waLink(WA_DEFAULT)} target="_blank" rel="noopener" className="btn-metal reveal mt-10 inline-flex items-center gap-2 px-9 py-5 text-lg font-bold">
